@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MyCollectionViewCell.h
 //  jumpsum
 //
 //  Created by Tyler Cap on 2/5/15.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MyCollectionViewCell : UICollectionViewCell
+@property (strong, nonatomic) IBOutlet UILabel *tileLabel;
 
 @end
-
