@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MyCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *tileLabel;
+@property (nonatomic, weak) IBOutlet UILabel *title;
+
+-(void)setLabel:(NSString *)value;
 
 @end

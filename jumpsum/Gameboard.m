@@ -26,6 +26,17 @@ int values[7][5];
     return [NSString stringWithFormat:@"%d",val];
 }
 
+-(NSInteger)getSections
+{
+    return 7;
+}
+
+
+-(NSInteger)getItems
+{
+    return 5;
+}
+
 -(void)loadFromArray:(NSArray *)gameboard
 {
     for( int i=0; i<gameboard.count; i++ ){

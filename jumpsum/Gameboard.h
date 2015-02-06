@@ -16,6 +16,8 @@ extern int values[7][5];
 
 -(NSString *)getValueAt:(NSInteger)row
                  column:(NSInteger)column;
+-(NSInteger)getSections; // rows
+-(NSInteger)getItems; // columns
 
 -(void)loadFromArray:(NSArray *)gameboard;
 

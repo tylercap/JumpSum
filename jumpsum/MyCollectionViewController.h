@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MyCollectionViewCell.h"
 #import "Gameboard.h"
+#import "MyCollectionViewLayout.h"
 
 @interface MyCollectionViewController : UICollectionViewController
 <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (nonatomic, weak) IBOutlet MyCollectionViewLayout *layout;
 @property(strong, nonatomic) Gameboard *gameboard;
 
 @end

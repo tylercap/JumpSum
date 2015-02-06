@@ -8,6 +8,8 @@
 
 #import "MyCollectionViewController.h"
 
+static NSString * const CellIdentifier = @"TileCell";
+
 @implementation MyCollectionViewController
 
 - (Gameboard *)gameboard
@@ -26,8 +28,8 @@
     [super viewDidLoad];
     
     if (self.gameboard != nil) {
-        for( int i=0; i<7; i++ ){
-            for( int j=0; j<5; j++ ){
+        for( int i=0; i<self.gameboard.getSections; i++ ){
+            for( int j=0; j<self.gameboard.getItems; j++ ){
                 /*UIButton *button = buttons[i][j];
                 
                 [button setTitle: [self.gameboard getValueAt:i column:j]
@@ -35,6 +37,8 @@
             }
         }
     }
+    
+    //[self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,33 +46,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -
 #pragma mark UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 7;
+    return [self.gameboard getSections];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView
     numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return [self.gameboard getItems];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MyCollectionViewCell *myCell = [collectionView
-                                    dequeueReusableCellWithReuseIdentifier:@"TileCell"
+                                    dequeueReusableCellWithReuseIdentifier:CellIdentifier
                                     forIndexPath:indexPath];
     
-    NSInteger row = [indexPath section];
-    NSInteger column = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger item = [indexPath item];
     
-    NSString *value = [self.gameboard getValueAt:row column:column];
+    NSString *value = [self.gameboard getValueAt:section column:item];
     
-    myCell.tileLabel.text = value;
+    [myCell setLabel:value];
     
     return myCell;
 }
