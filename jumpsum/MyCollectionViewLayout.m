@@ -9,6 +9,7 @@
 #import "MyCollectionViewLayout.h"
 
 static NSString * const CellIdentifier = @"TileCell";
+static NSString * const ButtonIdentifier = @"ButtonCell";
 
 @implementation MyCollectionViewLayout
 
@@ -18,7 +19,7 @@ static NSString * const CellIdentifier = @"TileCell";
     self.itemInsets = UIEdgeInsetsMake(spacing, spacing, spacing, spacing);
     
     self.numberOfRows = [self.collectionView numberOfSections];
-    self.numberOfColumns = [self.collectionView numberOfItemsInSection:0];
+    self.numberOfColumns = [self.collectionView numberOfItemsInSection:3];
     
     CGSize size = [UIScreen mainScreen].bounds.size;
     CGFloat availableWidth  = size.width - (spacing * (self.numberOfColumns + 1));
@@ -83,6 +84,7 @@ static NSString * const CellIdentifier = @"TileCell";
     [self.layoutInfo enumerateKeysAndObjectsUsingBlock:^(NSString *elementIdentifier,
                                                          NSDictionary *elementsInfo,
                                                          BOOL *stop) {
+        
         [elementsInfo enumerateKeysAndObjectsUsingBlock:^(NSIndexPath *indexPath,
                                                           UICollectionViewLayoutAttributes *attributes,
                                                           BOOL *innerStop) {
@@ -106,7 +108,7 @@ static NSString * const CellIdentifier = @"TileCell";
     CGFloat height = self.itemInsets.top + self.itemInsets.bottom +
                     rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY;
     
-    NSInteger colCount = [self.collectionView numberOfItemsInSection:0];
+    NSInteger colCount = [self.collectionView numberOfItemsInSection:3];
     CGFloat width = self.itemInsets.left + self.itemInsets.right +
                     colCount * self.itemSize.width + (colCount - 1) * self.interItemSpacingX;
     

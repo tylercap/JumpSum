@@ -19,7 +19,8 @@
     return self;
 }
 
-- (void)setLabel:(NSString *)value{
+- (void)setLabel:(NSString *)value
+{
     self.title.text = value;
 }
 

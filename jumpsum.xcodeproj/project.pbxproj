@@ -17,6 +17,7 @@
 		D40ADA4A1A83C31E00E23C48 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA491A83C31E00E23C48 /* MyCollectionViewCell.m */; };
 		D40ADA4D1A83C3EB00E23C48 /* Gameboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */; };
 		D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */; };
+		D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D497E61E1A8565EA00CDC930 /* MyButtonCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gameboard.m; sourceTree = "<group>"; };
 		D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewLayout.h; sourceTree = "<group>"; };
 		D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewLayout.m; sourceTree = "<group>"; };
+		D497E61D1A8565EA00CDC930 /* MyButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButtonCell.h; sourceTree = "<group>"; };
+		D497E61E1A8565EA00CDC930 /* MyButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButtonCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				D40ADA491A83C31E00E23C48 /* MyCollectionViewCell.m */,
 				D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */,
 				D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */,
+				D497E61D1A8565EA00CDC930 /* MyButtonCell.h */,
+				D497E61E1A8565EA00CDC930 /* MyButtonCell.m */,
 				D40ADA2F1A83BFAD00E23C48 /* Images.xcassets */,
 				D40ADA311A83BFAD00E23C48 /* LaunchScreen.xib */,
 				D40ADA221A83BFAD00E23C48 /* Supporting Files */,
@@ -236,6 +241,7 @@
 			files = (
 				D40ADA2B1A83BFAD00E23C48 /* MyCollectionViewController.m in Sources */,
 				D40ADA281A83BFAD00E23C48 /* AppDelegate.m in Sources */,
+				D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */,
 				D40ADA4A1A83C31E00E23C48 /* MyCollectionViewCell.m in Sources */,
 				D40ADA4D1A83C3EB00E23C48 /* Gameboard.m in Sources */,
 				D40ADA251A83BFAD00E23C48 /* main.m in Sources */,
