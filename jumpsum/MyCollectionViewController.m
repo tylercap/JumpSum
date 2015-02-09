@@ -67,7 +67,7 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
 {
     if(section == 0){
         // header
-        return 1;
+        return 2;
     }
     else if(section > [self.gameboard getSections]){
         // footer
@@ -90,10 +90,10 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
                                     dequeueReusableCellWithReuseIdentifier:CellIdentifier
                                     forIndexPath:indexPath];
     
-    NSInteger section = [indexPath section];
-    NSInteger item = [indexPath item];
+    NSInteger row = [indexPath section] - 1;
+    NSInteger column = [indexPath item];
     
-    NSString *value = [self.gameboard getValueAt:section column:item];
+    NSString *value = [self.gameboard getValueAt:row column:column];
     
     [myCell setLabel:value];
     
@@ -111,7 +111,18 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
          dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
          forIndexPath:indexPath];
         
-        [buttonCell setLabel:@"Sign In"];
+        if(item == 0){
+            [buttonCell setLabel:@"Leaderboard"
+                       backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+                       textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
+                         rounded:NO];
+        }
+        else{
+            [buttonCell setLabel:@"Sign In"
+                       backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+                       textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
+                         rounded:NO];
+        }
         
         return buttonCell;
     }
@@ -121,10 +132,18 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
                                     forIndexPath:indexPath];
         
         if(item == 0){
-            [buttonCell setLabel:@"How To"];
+            [buttonCell setLabel:@"How To"
+                       backColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
+                       textColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
+                         rounded:NO];
+
         }
         else if(item == 1){
-            [buttonCell setLabel:@"New Game"];
+            [buttonCell setLabel:@"New Game"
+                       backColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
+                       textColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
+                         rounded:NO];
+
         }
         
         return buttonCell;

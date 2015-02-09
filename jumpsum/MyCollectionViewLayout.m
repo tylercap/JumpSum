@@ -16,7 +16,7 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
 - (void)setup
 {
     float spacing = 7.0f;
-    self.itemInsets = UIEdgeInsetsMake(spacing, spacing, spacing, spacing);
+    self.itemInsets = UIEdgeInsetsMake(spacing * 3, spacing, spacing, spacing);
     
     self.numberOfRows = [self.collectionView numberOfSections];
     self.numberOfColumns = [self.collectionView numberOfItemsInSection:3];
@@ -70,11 +70,38 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
     NSInteger row = indexPath.section;
     NSInteger column = indexPath.item;
     
-    CGFloat originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * column);
+    CGFloat originX;
+    CGFloat originY;
+    CGFloat height;
+    CGFloat width;
     
-    CGFloat originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * row);
+    if( row == 0 || row == self.numberOfRows - 1 ){
+        if( column == 0 ){
+            originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * column);
+        }
+        else{
+            originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * (self.numberOfColumns - 2));
+        }
+        
+        originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * row);
+        
+        height = self.itemSize.height / 2;
+        width = self.itemSize.width * 2 + self.interItemSpacingX;
+    }
+    else{
+        originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * column);
+        
+        CGFloat headerHeight = floorf( (self.itemSize.height / 2) + self.interItemSpacingY );
+        
+        originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * (row - 1));
+        
+        originY += headerHeight;
+        
+        height = self.itemSize.height;
+        width = self.itemSize.width;
+    }
     
-    return CGRectMake(originX, originY, self.itemSize.width, self.itemSize.height);
+    return CGRectMake(originX, originY, width, height);
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect

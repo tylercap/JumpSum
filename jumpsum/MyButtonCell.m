@@ -20,8 +20,23 @@
 }
 
 - (void)setLabel:(NSString *)value
+       backColor:(UIColor *) back
+       textColor:(UIColor *) text
+         rounded:(Boolean)round
 {
     [self.button setTitle:value forState:UIControlStateNormal];
+    
+    [self.button setTitleColor:text forState:UIControlStateNormal];
+    
+    self.backgroundColor = back;
+    self.button.titleLabel.textColor = text;
+    self.layer.borderColor = text.CGColor;
+    self.layer.borderWidth = 1.0;
+    
+    if( round )
+        self.layer.cornerRadius = 6.0f;
+    
+    self.layer.masksToBounds = YES;
 }
 
 @end
