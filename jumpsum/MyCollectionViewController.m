@@ -10,6 +10,9 @@
 
 static NSString * const CellIdentifier = @"TileCell";
 static NSString * const ButtonIdentifier = @"ButtonCell";
+static NSString * const LabelIdentifier = @"LabelCell";
+static NSString * const CurrentScore = @"Current Score:";
+static NSString * const HighScore = @"High Score:";
 
 @implementation MyCollectionViewController
 
@@ -26,28 +29,6 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    /*
-    if (self.gameboard != nil) {
-        for( int i=0; i<self.gameboard.getSections; i++ ){
-            for( int j=0; j<self.gameboard.getItems; j++ ){
-                [buttons[i][j] setTitle: [self.gameboard getValueAt:i column:j]
-                               forState: UIControlStateNormal];
-            }
-        }
-    }
-     */
-    
-    /*
-    [self.collectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:CellIdentifier];
-    
-    [self.collectionView registerClass:[UICollectionReusableView class]
-            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader
-                   withReuseIdentifier:HeaderIdentifier];
-    [self.collectionView registerClass:[UICollectionReusableView class]
-            forSupplementaryViewOfKind: UICollectionElementKindSectionFooter
-                   withReuseIdentifier:FooterIdentifier];
-     */
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,11 +48,11 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
 {
     if(section == 0){
         // header
-        return 2;
+        return 3;
     }
     else if(section > [self.gameboard getSections]){
         // footer
-        return 2;
+        return 3;
     }
     
     return [self.gameboard getItems];
@@ -106,50 +87,86 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
     NSInteger section = [indexPath section];
     NSInteger item = [indexPath item];
     
+    UICollectionViewCell *cell = nil;
     if( section == 0 ){
-        MyButtonCell *buttonCell = [collectionView
-         dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
-         forIndexPath:indexPath];
         
         if(item == 0){
+            MyButtonCell *buttonCell = [collectionView
+                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                        forIndexPath:indexPath];
+            
             [buttonCell setLabel:@"Leaderboard"
                        backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
                        textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
                          rounded:NO];
+            
+            cell = buttonCell;
         }
-        else{
+        else if(item == 2){
+            MyButtonCell *buttonCell = [collectionView
+                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                        forIndexPath:indexPath];
+            
             [buttonCell setLabel:@"Sign In"
                        backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
                        textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
                          rounded:NO];
+            
+            cell = buttonCell;
         }
-        
-        return buttonCell;
+        else if(item == 1){
+            MyLabelCell *labelCell = [collectionView
+                                        dequeueReusableCellWithReuseIdentifier:LabelIdentifier
+                                        forIndexPath:indexPath];
+            
+            [labelCell setLabel:CurrentScore
+                      textColor:[UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0]];
+            
+            cell = labelCell;
+        }
     }
     if( section > [self.gameboard getSections] ){
-        MyButtonCell *buttonCell = [collectionView
-                                    dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
-                                    forIndexPath:indexPath];
         
         if(item == 0){
+            MyButtonCell *buttonCell = [collectionView
+                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                        forIndexPath:indexPath];
+            
             [buttonCell setLabel:@"How To"
                        backColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
                        textColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
                          rounded:NO];
+            
+            cell = buttonCell;
 
         }
-        else if(item == 1){
+        else if(item == 2){
+            MyButtonCell *buttonCell = [collectionView
+                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                        forIndexPath:indexPath];
+            
             [buttonCell setLabel:@"New Game"
                        backColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
                        textColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
                          rounded:NO];
+            
+            cell = buttonCell;
 
         }
-        
-        return buttonCell;
+        else if(item == 1){
+            MyLabelCell *labelCell = [collectionView
+                                      dequeueReusableCellWithReuseIdentifier:LabelIdentifier
+                                      forIndexPath:indexPath];
+            
+            [labelCell setLabel:HighScore
+                      textColor:[UIColor colorWithRed:0.9 green:0.5 blue:0.0 alpha:1.0]];
+            
+            cell = labelCell;
+        }
+
     }
     
-    return nil;
+    return cell;
 }
 
 @end

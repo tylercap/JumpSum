@@ -10,6 +10,7 @@
 
 static NSString * const CellIdentifier = @"TileCell";
 static NSString * const ButtonIdentifier = @"ButtonCell";
+static NSString * const LabelIdentifier = @"LabelCell";
 
 @implementation MyCollectionViewLayout
 
@@ -77,16 +78,29 @@ static NSString * const ButtonIdentifier = @"ButtonCell";
     
     if( row == 0 || row == self.numberOfRows - 1 ){
         if( column == 0 ){
-            originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * column);
+            originX = floorf(self.itemInsets.left);
+            
+            height = self.itemSize.height / 2;
+            width = self.itemSize.width * 1.5;
+        }
+        else if( column == [self.collectionView numberOfItemsInSection:row] - 1 ){
+            originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * (self.numberOfColumns - 1.5));
+            originX += self.interItemSpacingX / 2;
+            
+            height = self.itemSize.height / 2;
+            width = self.itemSize.width * 1.5;
         }
         else{
-            originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * (self.numberOfColumns - 2));
+            originX = floorf(self.itemInsets.left + (self.itemSize.width * 1.5) + self.interItemSpacingX);
+            
+            CGSize size = [UIScreen mainScreen].bounds.size;
+            CGFloat endX = size.width - (self.itemSize.width * 1.5) - self.interItemSpacingX;
+            
+            height = self.itemSize.height / 2;
+            width = endX - originX;
         }
         
         originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * row);
-        
-        height = self.itemSize.height / 2;
-        width = self.itemSize.width * 2 + self.interItemSpacingX;
     }
     else{
         originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * column);

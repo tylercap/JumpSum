@@ -11,6 +11,7 @@
 #import "Gameboard.h"
 #import "MyCollectionViewLayout.h"
 #import "MyButtonCell.h"
+#import "MyLabelCell.h"
 
 @interface MyCollectionViewController : UICollectionViewController
 <UICollectionViewDataSource, UICollectionViewDelegate>
