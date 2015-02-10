@@ -64,53 +64,61 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.superview bringSubviewToFront:self];
-    
-    self.originalPosition = self.center;
-    UITouch *touch = [touches anyObject];
-    CGPoint position = [touch locationInView: self.superview];
-    
-    self.touchOffset = CGPointMake(self.center.x - position.x,self.center.y - position.y);
-    
-    [self highlightValidTargets:YES];
+    if( _value > 0 ){
+        [self.superview bringSubviewToFront:self];
+        
+        self.originalPosition = self.center;
+        UITouch *touch = [touches anyObject];
+        CGPoint position = [touch locationInView: self.superview];
+        
+        self.touchOffset = CGPointMake(self.center.x - position.x,self.center.y - position.y);
+        
+        [self highlightValidTargets:YES];
+    }
 }
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *touch = [touches anyObject];
-    CGPoint position = [touch locationInView: self.superview];
-    
-    [UIView animateWithDuration:.001
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^ {
-                         
-                         self.center = CGPointMake(position.x+_touchOffset.x, position.y+_touchOffset.y);
-                     }
-                     completion:^(BOOL finished) {}];
+    if( _value > 0 ){
+        UITouch *touch = [touches anyObject];
+        CGPoint position = [touch locationInView: self.superview];
+        
+        [UIView animateWithDuration:.001
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^ {
+                             
+                             self.center = CGPointMake(position.x+_touchOffset.x, position.y+_touchOffset.y);
+                         }
+                         completion:^(BOOL finished) {}];
+    }
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    //CGPoint positionInView = [touch locationInView:self.view];
-    CGPoint newPosition;
-    /*if (CGRectContainsPoint(_desiredView.frame, positionInView)) {
-        newPosition = positionInView;
-        // _desiredView is view where the user can drag the view
-    } else {*/
-        newPosition = self.originalPosition;
-        // its outside the desired view so lets move the view back to start position
-    //}
-    
-    [UIView animateWithDuration:0.4
-                          delay:0.0
-                        options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^ {
-                         self.center = newPosition;
-                     }
-                     completion:^(BOOL finished) {}];
-    
-    [self highlightValidTargets:NO];
+    if( _value > 0 ){
+        UITouch *touch = [touches anyObject];
+        CGPoint position = [touch locationInView: self.superview];
+        
+        [self highlightValidTargets:NO];
+        
+        UICollectionView *collectionView = (UICollectionView*)self.superview;
+        NSIndexPath *indexPath = [collectionView indexPathForCell:self];
+        MyCollectionViewController *mcvc = (MyCollectionViewController *)self.window.rootViewController;
+        
+        if( [mcvc jumpedTile:indexPath landing:position] ){
+            self.center = self.originalPosition;
+        }
+        else{
+            [UIView animateWithDuration:0.4
+                                  delay:0.0
+                                options:UIViewAnimationOptionCurveEaseInOut
+                             animations:^ {
+                                 self.center = self.originalPosition;
+                             }
+                             completion:^(BOOL finished) {}];
+        }
+    }
 }
 
 -(void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event

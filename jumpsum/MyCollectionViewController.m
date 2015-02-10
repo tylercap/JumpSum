@@ -52,25 +52,147 @@ static NSString * const HighScore = @"High Score:";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)highlightValidTargets:(NSIndexPath *)indexPath
-                    highlight:(Boolean)highlight
+- (Boolean)jumpedTile:(NSIndexPath *)indexPath
+           landing:(CGPoint)dropTarget
 {
+    NSMutableArray *validTargets = [self getValidTargets:indexPath];
+    for( CellPair *validTarget in validTargets ){
+        MyCollectionViewCell *landingTile = (MyCollectionViewCell*)validTarget.landingCell;
+        
+        if (CGRectContainsPoint(landingTile.frame, dropTarget)) {
+            // update the visible tile and the gameboard data
+            NSInteger row = [indexPath section] - _headerSections;
+            NSInteger column = [indexPath item];
+            NSMutableArray *rowArray = [self.tiles objectAtIndex:row];
+            MyCollectionViewCell *draggedTile = [rowArray objectAtIndex:column];
+            
+            MyCollectionViewCell *jumpedTile = (MyCollectionViewCell*)validTarget.jumpedCell;
+            
+            NSInteger landingValue = draggedTile.value + jumpedTile.value;
+            [landingTile setLabel:landingValue];
+            
+            [draggedTile setLabel:-1];
+            [jumpedTile setLabel:-1];
+            
+            // still have to update the gameboard data
+            [self.gameboard setValueAt:-1
+                                   row:row
+                                column:column];
+            
+            NSIndexPath *jumpedPath = [self.collectionView indexPathForCell:jumpedTile];
+            NSIndexPath *landingPath = [self.collectionView indexPathForCell:landingTile];
+            
+            row = [jumpedPath section] - _headerSections;
+            column = [jumpedPath item];
+            [self.gameboard setValueAt:-1
+                                   row:row
+                                column:column];
+            
+            row = [landingPath section] - _headerSections;
+            column = [landingPath item];
+            [self.gameboard setValueAt:landingValue
+                                   row:row
+                                column:column];
+            
+            return YES;
+        }
+    }
+    
+    return NO;
+}
+
+- (NSMutableArray *)getValidTargets:(NSIndexPath *)indexPath
+{
+    NSMutableArray *validTargets = [[NSMutableArray alloc] init];
+    
     NSInteger row = [indexPath section] - _headerSections;
     NSInteger column = [indexPath item];
     
-    // check up directly 2 and down directly 2
+    MyCollectionViewCell *jumpedTile;
+    MyCollectionViewCell *landingTile;
     
     // check left directly 2 and right directly 2
     NSMutableArray *rowArray = [self.tiles objectAtIndex:row];
     
     if( column > 1 ){
-        MyCollectionViewCell *left = [rowArray objectAtIndex:(column - 2)];
-        [left highlight:highlight];
+        // left
+        jumpedTile = [rowArray objectAtIndex:(column - 1)];
+        landingTile = [rowArray objectAtIndex:(column - 2)];
+        
+        if( [self isValidJump:jumpedTile destination:landingTile] ){
+            CellPair *validPair = [[CellPair alloc] initWithCell:landingTile
+                                                           cell2:jumpedTile];
+            [validTargets addObject:validPair];
+        }
     }
     if( (column + 2) < [self.gameboard getItems] ){
-        MyCollectionViewCell *right = [rowArray objectAtIndex:(column + 2)];
-        [right highlight:highlight];
+        // right
+        jumpedTile = [rowArray objectAtIndex:(column + 1)];
+        landingTile = [rowArray objectAtIndex:(column + 2)];
+        
+        if( [self isValidJump:jumpedTile destination:landingTile] ){
+            CellPair *validPair = [[CellPair alloc] initWithCell:landingTile
+                                                           cell2:jumpedTile];
+            [validTargets addObject:validPair];
+        }
     }
+    
+    // check up directly 2 and down directly 2
+    if( row > 1 ){
+        // up
+        rowArray = [self.tiles objectAtIndex:(row - 1)];
+        jumpedTile = [rowArray objectAtIndex:column];
+        rowArray = [self.tiles objectAtIndex:(row - 2)];
+        landingTile = [rowArray objectAtIndex:column];
+        
+        if( [self isValidJump:jumpedTile destination:landingTile] ){
+            CellPair *validPair = [[CellPair alloc] initWithCell:landingTile
+                                                           cell2:jumpedTile];
+            [validTargets addObject:validPair];
+        }
+    }
+    if( (row + 2) < [self.gameboard getSections] ){
+        // down
+        rowArray = [self.tiles objectAtIndex:(row + 1)];
+        jumpedTile = [rowArray objectAtIndex:column];
+        rowArray = [self.tiles objectAtIndex:(row + 2)];
+        landingTile = [rowArray objectAtIndex:column];
+        
+        if( [self isValidJump:jumpedTile destination:landingTile] ){
+            CellPair *validPair = [[CellPair alloc] initWithCell:landingTile
+                                                           cell2:jumpedTile];
+            [validTargets addObject:validPair];
+        }
+    }
+    
+    return validTargets;
+}
+
+- (void)highlightValidTargets:(NSIndexPath *)indexPath
+                    highlight:(Boolean)highlight
+{
+    NSMutableArray *validTargets = [self getValidTargets:indexPath];
+    for( CellPair *validTarget in validTargets ){
+        MyCollectionViewCell *landing = (MyCollectionViewCell *)validTarget.landingCell;
+        [landing highlight:highlight];
+    }
+}
+
+-(Boolean) isValidJump:(MyCollectionViewCell *)jumpedTile
+           destination:(MyCollectionViewCell *)landingTile
+{
+    if( jumpedTile == nil || landingTile == nil ){
+        return NO;
+    }
+    
+    if( jumpedTile.value <= 0 ){
+        return NO;
+    }
+    if( landingTile.value > 0 ){
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark UICollectionViewDataSource

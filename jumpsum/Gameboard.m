@@ -32,6 +32,13 @@ int values[7][5];
     return values[row][column];
 }
 
+-(void)setValueAt:(NSInteger)value
+              row:(NSInteger)row
+           column:(NSInteger)column
+{
+    values[row][column] = value;
+}
+
 -(NSInteger)getSections
 {
     return 7;

@@ -16,6 +16,9 @@ extern int values[7][5];
                    column:(NSInteger)column;
 -(NSString *)getValueAt:(NSInteger)row
                  column:(NSInteger)column;
+-(void)setValueAt:(NSInteger)value
+              row:(NSInteger)row
+           column:(NSInteger)column;
 -(NSInteger)getSections; // rows
 -(NSInteger)getItems; // columns
 

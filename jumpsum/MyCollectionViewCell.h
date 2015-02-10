@@ -10,6 +10,7 @@
 #import "MyCollectionViewController.h"
 
 @interface MyCollectionViewCell : UICollectionViewCell
+
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic) NSInteger value;
 @property (nonatomic, assign) CGPoint touchOffset;

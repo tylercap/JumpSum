@@ -12,6 +12,7 @@
 #import "MyCollectionViewLayout.h"
 #import "MyButtonCell.h"
 #import "MyLabelCell.h"
+#import "CellPair.h"
 
 @interface MyCollectionViewController : UICollectionViewController
 <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -32,6 +33,8 @@
 
 -(void)highlightValidTargets:(NSIndexPath *)indexPath
                    highlight:(Boolean)highlight;
+-(Boolean)jumpedTile:(NSIndexPath *)indexPath
+             landing:(CGPoint)dropTarget;
 
 @end
 
