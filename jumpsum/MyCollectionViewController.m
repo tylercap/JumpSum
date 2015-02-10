@@ -11,8 +11,8 @@
 static NSString * const CellIdentifier = @"TileCell";
 static NSString * const ButtonIdentifier = @"ButtonCell";
 static NSString * const LabelIdentifier = @"LabelCell";
-static NSString * const CurrentScore = @"Current Score:";
-static NSString * const HighScore = @"High Score:";
+static NSString * const CurrentScore = @"Current Score: ";
+static NSString * const HighScore = @"High Score: ";
 
 @implementation MyCollectionViewController
 
@@ -39,7 +39,15 @@ static NSString * const HighScore = @"High Score:";
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self updateScore];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     
     if (_gameboard != nil) {
@@ -55,7 +63,10 @@ static NSString * const HighScore = @"High Score:";
 - (Boolean)jumpedTile:(NSIndexPath *)indexPath
            landing:(CGPoint)dropTarget
 {
-    NSMutableArray *validTargets = [self getValidTargets:indexPath];
+    NSInteger row = [indexPath section] - _headerSections;
+    NSInteger column = [indexPath item];
+    
+    NSMutableArray *validTargets = [self getValidTargets:row column:column];
     for( CellPair *validTarget in validTargets ){
         MyCollectionViewCell *landingTile = (MyCollectionViewCell*)validTarget.landingCell;
         
@@ -94,6 +105,8 @@ static NSString * const HighScore = @"High Score:";
                                    row:row
                                 column:column];
             
+            [self updateScore];
+            
             return YES;
         }
     }
@@ -101,12 +114,41 @@ static NSString * const HighScore = @"High Score:";
     return NO;
 }
 
-- (NSMutableArray *)getValidTargets:(NSIndexPath *)indexPath
+- (void)updateScore
+{
+    Boolean gameOver = YES;
+    NSInteger currentScore = 0;
+    
+    for( int i=0; i<[self.gameboard getSections]; i++ ){
+        for( int j=0; j<[self.gameboard getItems]; j++ ){
+            NSMutableArray *rowArray = [self.tiles objectAtIndex:i];
+            MyCollectionViewCell *cell = [rowArray objectAtIndex:j];
+            
+            NSInteger cellValue = cell.value;
+            
+            if( cellValue > 0 ){
+                // check game over as well
+                NSMutableArray *validMoves = [self getValidTargets:i column:j];
+                if(validMoves != nil && [validMoves count] > 0){
+                    gameOver = NO;
+                }
+                
+                currentScore = fmax(currentScore, cellValue);
+            }
+        }
+    }
+    
+    self.currentScoreLabel.text = [NSString stringWithFormat:@"%@%d", CurrentScore, currentScore];
+    
+    if( gameOver ){
+        //TODO: Display game over popup
+    }
+}
+
+- (NSMutableArray *)getValidTargets:(NSInteger)row
+                             column:(NSInteger)column
 {
     NSMutableArray *validTargets = [[NSMutableArray alloc] init];
-    
-    NSInteger row = [indexPath section] - _headerSections;
-    NSInteger column = [indexPath item];
     
     MyCollectionViewCell *jumpedTile;
     MyCollectionViewCell *landingTile;
@@ -171,7 +213,10 @@ static NSString * const HighScore = @"High Score:";
 - (void)highlightValidTargets:(NSIndexPath *)indexPath
                     highlight:(Boolean)highlight
 {
-    NSMutableArray *validTargets = [self getValidTargets:indexPath];
+    NSInteger row = [indexPath section] - _headerSections;
+    NSInteger column = [indexPath item];
+    
+    NSMutableArray *validTargets = [self getValidTargets:row column:column];
     for( CellPair *validTarget in validTargets ){
         MyCollectionViewCell *landing = (MyCollectionViewCell *)validTarget.landingCell;
         [landing highlight:highlight];

@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        //self.backgroundColor = _normalBack;
+        //self.backgroundColor = [UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0];
     }
     
     return self;
@@ -33,6 +33,7 @@
         self.title.text = @"";
     }
     
+    self.backgroundColor = [UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0];
     self.layer.borderColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:1.0].CGColor;
     self.layer.borderWidth = 1.0;
     self.layer.cornerRadius = 6.0f;
@@ -42,7 +43,7 @@
 - (void)highlight:(Boolean)highlight
 {
     if( _normalBack == nil ){
-        _normalBack = [UIColor colorWithRed:0.9 green:0.5 blue:0.0 alpha:1.0];
+        _normalBack = [UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0];
         _highlightBack = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:1.0];
     }
     

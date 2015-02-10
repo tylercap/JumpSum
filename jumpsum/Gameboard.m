@@ -9,11 +9,17 @@
 #import "Gameboard.h"
 
 int values[7][5];
+static NSString * const Sandbox = @"GAMEBOARD.dat";
+
 @implementation Gameboard
 
 - (id)init
 {
     self = [super init];
+    
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    _dataPath = [docPath stringByAppendingPathComponent:Sandbox];
+    
     [self loadFromSandbox];
     
     return self;
@@ -110,9 +116,9 @@ int values[7][5];
 
 - (void)loadFromSandbox
 {
-    NSArray *array = [NSArray arrayWithContentsOfFile:@"GAMEBOARD"];
+    NSArray *array = [NSArray arrayWithContentsOfFile:_dataPath];
     
-    if (array != nil || [array count] > 0) {
+    if ( array != nil && [array count] > 0 ) {
         [self loadFromArray:array];
     }
     else{
@@ -124,7 +130,7 @@ int values[7][5];
 {
     NSMutableArray *array = [self storeToArray];
     
-    [array writeToFile:@"GAMEBOARD" atomically:YES];
+    [array writeToFile:_dataPath atomically:YES];
 }
 
 

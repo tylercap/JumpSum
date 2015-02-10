@@ -12,6 +12,8 @@
 
 extern int values[7][5];
 
+@property (nonatomic, strong) NSString *dataPath;
+
 -(NSInteger)getIntValueAt:(NSInteger)row
                    column:(NSInteger)column;
 -(NSString *)getValueAt:(NSInteger)row
