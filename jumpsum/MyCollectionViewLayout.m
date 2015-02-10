@@ -26,9 +26,9 @@ static NSString * const LabelIdentifier = @"LabelCell";
     CGFloat availableWidth  = size.width - (spacing * (self.numberOfColumns + 1));
     CGFloat availableHeight = size.height - (spacing * (self.numberOfRows + 1));
     
-    CGFloat squareSize = availableWidth / self.numberOfColumns;
-    squareSize = fmin(squareSize, (availableHeight / self.numberOfRows));
-    self.itemSize = CGSizeMake(squareSize, squareSize);
+    CGFloat width = availableWidth / self.numberOfColumns;
+    CGFloat height = availableHeight / self.numberOfRows;
+    self.itemSize = CGSizeMake(width, height);
     
     self.interItemSpacingY = spacing;
     self.interItemSpacingX = spacing;

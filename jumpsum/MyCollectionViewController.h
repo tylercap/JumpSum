@@ -18,6 +18,20 @@
 
 @property (nonatomic, weak) IBOutlet MyCollectionViewLayout *layout;
 @property(strong, nonatomic) Gameboard *gameboard;
+@property(strong, nonatomic) NSMutableArray *tiles;
+
+@property (nonatomic) NSInteger headerSections;
+@property (nonatomic) NSInteger footerSections;
+
+@property (weak, nonatomic) UIButton *restartGame;
+@property (weak, nonatomic) UIButton *howTo;
+@property (weak, nonatomic) UIButton *signInOut;
+@property (weak, nonatomic) UIButton *leaderboard;
+@property (weak, nonatomic) UILabel *currentScoreLabel;
+@property (weak, nonatomic) UILabel *highScoreLabel;
+
+-(void)highlightValidTargets:(NSIndexPath *)indexPath
+                   highlight:(Boolean)highlight;
 
 @end
 

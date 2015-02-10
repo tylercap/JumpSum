@@ -22,13 +22,29 @@ static NSString * const HighScore = @"High Score:";
         return _gameboard;
     }
     _gameboard = [[Gameboard alloc] init];
-    [_gameboard loadFromSandbox];
     return _gameboard;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _headerSections = 1;
+    _footerSections = 1;
+    
+    self.tiles = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getSections]];
+    for( int i = 0; i < [self.gameboard getSections]; i++ ){
+        NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getItems]];
+        [self.tiles addObject:items];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (_gameboard != nil) {
+        [_gameboard saveToSandbox];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,11 +52,32 @@ static NSString * const HighScore = @"High Score:";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)highlightValidTargets:(NSIndexPath *)indexPath
+                    highlight:(Boolean)highlight
+{
+    NSInteger row = [indexPath section] - _headerSections;
+    NSInteger column = [indexPath item];
+    
+    // check up directly 2 and down directly 2
+    
+    // check left directly 2 and right directly 2
+    NSMutableArray *rowArray = [self.tiles objectAtIndex:row];
+    
+    if( column > 1 ){
+        MyCollectionViewCell *left = [rowArray objectAtIndex:(column - 2)];
+        [left highlight:highlight];
+    }
+    if( (column + 2) < [self.gameboard getItems] ){
+        MyCollectionViewCell *right = [rowArray objectAtIndex:(column + 2)];
+        [right highlight:highlight];
+    }
+}
+
 #pragma mark UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return [self.gameboard getSections] + 2; // pseudo header and footer
+    return [self.gameboard getSections] + _headerSections + _footerSections;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView
@@ -71,10 +108,14 @@ static NSString * const HighScore = @"High Score:";
                                     dequeueReusableCellWithReuseIdentifier:CellIdentifier
                                     forIndexPath:indexPath];
     
-    NSInteger row = [indexPath section] - 1;
+    NSInteger row = [indexPath section] - _headerSections;
     NSInteger column = [indexPath item];
     
-    NSString *value = [self.gameboard getValueAt:row column:column];
+    NSMutableArray *rowArray = [self.tiles objectAtIndex:row];
+    [rowArray insertObject:myCell atIndex:column];
+    
+    //NSString *value = [self.gameboard getValueAt:row column:column];
+    NSInteger value = [self.gameboard getIntValueAt:row column:column];
     
     [myCell setLabel:value];
     
@@ -101,6 +142,7 @@ static NSString * const HighScore = @"High Score:";
                          rounded:NO];
             
             cell = buttonCell;
+            self.leaderboard = buttonCell.button;
         }
         else if(item == 2){
             MyButtonCell *buttonCell = [collectionView
@@ -113,6 +155,7 @@ static NSString * const HighScore = @"High Score:";
                          rounded:NO];
             
             cell = buttonCell;
+            self.signInOut = buttonCell.button;
         }
         else if(item == 1){
             MyLabelCell *labelCell = [collectionView
@@ -123,6 +166,7 @@ static NSString * const HighScore = @"High Score:";
                       textColor:[UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0]];
             
             cell = labelCell;
+            self.currentScoreLabel = labelCell.label;
         }
     }
     if( section > [self.gameboard getSections] ){
@@ -138,7 +182,7 @@ static NSString * const HighScore = @"High Score:";
                          rounded:NO];
             
             cell = buttonCell;
-
+            self.howTo = buttonCell.button;
         }
         else if(item == 2){
             MyButtonCell *buttonCell = [collectionView
@@ -151,7 +195,7 @@ static NSString * const HighScore = @"High Score:";
                          rounded:NO];
             
             cell = buttonCell;
-
+            self.restartGame = buttonCell.button;
         }
         else if(item == 1){
             MyLabelCell *labelCell = [collectionView
@@ -162,6 +206,7 @@ static NSString * const HighScore = @"High Score:";
                       textColor:[UIColor colorWithRed:0.9 green:0.5 blue:0.0 alpha:1.0]];
             
             cell = labelCell;
+            self.highScoreLabel = labelCell.label;
         }
 
     }

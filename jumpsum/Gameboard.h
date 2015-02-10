@@ -12,8 +12,8 @@
 
 extern int values[7][5];
 
-- (id)initFromArray:(NSArray *)gameboard;
-
+-(NSInteger)getIntValueAt:(NSInteger)row
+                   column:(NSInteger)column;
 -(NSString *)getValueAt:(NSInteger)row
                  column:(NSInteger)column;
 -(NSInteger)getSections; // rows

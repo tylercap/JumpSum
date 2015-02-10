@@ -11,10 +11,10 @@
 int values[7][5];
 @implementation Gameboard
 
-- (id)initFromArray:(NSArray *)gameboard
+- (id)init
 {
     self = [super init];
-    [self loadFromArray:gameboard];
+    [self loadFromSandbox];
     
     return self;
 }
@@ -24,6 +24,12 @@ int values[7][5];
 {
     int val = values[row][column];
     return [NSString stringWithFormat:@"%d",val];
+}
+
+-(NSInteger)getIntValueAt:(NSInteger)row
+                 column:(NSInteger)column
+{
+    return values[row][column];
 }
 
 -(NSInteger)getSections
