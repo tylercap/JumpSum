@@ -112,6 +112,33 @@
                                     <outlet property="label" destination="Qv8-A5-M90" id="3jy-LB-jfh"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="BannerCell" id="gSk-i4-N9I" customClass="MyBannerCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osq-NG-gsj" customClass="GADBannerView">
+                                            <rect key="frame" x="-136" y="0.0" width="321" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="320" id="7Yq-MP-AUW"/>
+                                                <constraint firstAttribute="height" constant="50" id="nHy-Pw-lP1"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.13486013099999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="osq-NG-gsj" firstAttribute="top" secondItem="gSk-i4-N9I" secondAttribute="topMargin" constant="-8" id="02X-5d-23O"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="osq-NG-gsj" secondAttribute="bottom" constant="-8" id="mi7-ya-l0n"/>
+                                    <constraint firstAttribute="centerX" secondItem="osq-NG-gsj" secondAttribute="centerX" id="uSV-ty-ilB"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bannerAd" destination="osq-NG-gsj" id="y0A-P2-Pya"/>
+                                </connections>
+                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="cSo-An-kpR" id="cWk-q4-VcO"/>

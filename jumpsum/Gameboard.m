@@ -42,7 +42,7 @@ static NSString * const Sandbox = @"Gameboard.plist";
               row:(NSInteger)row
            column:(NSInteger)column
 {
-    values[row][column] = value;
+    values[row][column] = (int)value;
 }
 
 -(NSInteger)getSections

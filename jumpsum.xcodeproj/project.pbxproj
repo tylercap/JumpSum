@@ -20,6 +20,8 @@
 		D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */; };
 		D462260B1A8A9B8500CBB758 /* CellPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D462260A1A8A9B8500CBB758 /* CellPair.m */; };
 		D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D497E61E1A8565EA00CDC930 /* MyButtonCell.m */; };
+		D4F72BE21A8BEF73002F5B25 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */; };
+		D4F72BE51A8BF208002F5B25 /* MyBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		D462260A1A8A9B8500CBB758 /* CellPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPair.m; sourceTree = "<group>"; };
 		D497E61D1A8565EA00CDC930 /* MyButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButtonCell.h; sourceTree = "<group>"; };
 		D497E61E1A8565EA00CDC930 /* MyButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButtonCell.m; sourceTree = "<group>"; };
+		D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		D4F72BE31A8BF208002F5B25 /* MyBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBannerCell.h; sourceTree = "<group>"; };
+		D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBannerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F72BE21A8BEF73002F5B25 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 		D40ADA161A83BFAD00E23C48 = {
 			isa = PBXGroup;
 			children = (
+				D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */,
 				D40ADA211A83BFAD00E23C48 /* jumpsum */,
 				D40ADA3B1A83BFAD00E23C48 /* jumpsumTests */,
 				D40ADA201A83BFAD00E23C48 /* Products */,
@@ -114,6 +121,8 @@
 				D497E61E1A8565EA00CDC930 /* MyButtonCell.m */,
 				D40254F81A895B6700F218D3 /* MyLabelCell.h */,
 				D40254F91A895B6700F218D3 /* MyLabelCell.m */,
+				D4F72BE31A8BF208002F5B25 /* MyBannerCell.h */,
+				D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */,
 				D46226091A8A9B8500CBB758 /* CellPair.h */,
 				D462260A1A8A9B8500CBB758 /* CellPair.m */,
 				D40ADA2F1A83BFAD00E23C48 /* Images.xcassets */,
@@ -257,6 +266,7 @@
 				D40ADA4D1A83C3EB00E23C48 /* Gameboard.m in Sources */,
 				D40ADA251A83BFAD00E23C48 /* main.m in Sources */,
 				D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */,
+				D4F72BE51A8BF208002F5B25 /* MyBannerCell.m in Sources */,
 				D40254FA1A895B6700F218D3 /* MyLabelCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +389,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -390,6 +404,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

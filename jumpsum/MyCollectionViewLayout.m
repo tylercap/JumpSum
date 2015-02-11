@@ -11,6 +11,7 @@
 static NSString * const CellIdentifier = @"TileCell";
 static NSString * const ButtonIdentifier = @"ButtonCell";
 static NSString * const LabelIdentifier = @"LabelCell";
+static NSString * const BannerIdentifier = @"BannerCell";
 
 @implementation MyCollectionViewLayout
 
@@ -26,8 +27,9 @@ static NSString * const LabelIdentifier = @"LabelCell";
     CGFloat availableWidth  = size.width - (spacing * (self.numberOfColumns + 1));
     CGFloat availableHeight = size.height - (spacing * (self.numberOfRows + 1));
     
+    availableHeight -= 50;
     CGFloat width = availableWidth / self.numberOfColumns;
-    CGFloat height = availableHeight / self.numberOfRows;
+    CGFloat height = availableHeight / (self.numberOfRows - 1);
     self.itemSize = CGSizeMake(width, height);
     
     self.interItemSpacingY = spacing;
@@ -76,7 +78,17 @@ static NSString * const LabelIdentifier = @"LabelCell";
     CGFloat height;
     CGFloat width;
     
-    if( row == 0 || row == self.numberOfRows - 1 ){
+    if( row == 0 ){
+        // banner ad
+        originX = floorf(self.itemInsets.left);
+        originY = floorf(self.itemInsets.top);
+        
+        CGSize size = [UIScreen mainScreen].bounds.size;
+        width = size.width - (self.itemInsets.left + self.itemInsets.right);
+        height = 50;
+    }
+    else if( row == 1 || row == self.numberOfRows - 1 ){
+        // header and footer
         if( column == 0 ){
             originX = floorf(self.itemInsets.left);
             
@@ -100,14 +112,16 @@ static NSString * const LabelIdentifier = @"LabelCell";
             width = endX - originX;
         }
         
-        originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * row);
+        originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * (row - 1));
+        originY += 50 + self.interItemSpacingY;
     }
     else{
         originX = floorf(self.itemInsets.left + (self.itemSize.width + self.interItemSpacingX) * column);
         
         CGFloat headerHeight = floorf( (self.itemSize.height / 2) + self.interItemSpacingY );
+        headerHeight += 50 + self.interItemSpacingY;
         
-        originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * (row - 1));
+        originY = floorf(self.itemInsets.top + (self.itemSize.height + self.interItemSpacingY) * (row - 2));
         
         originY += headerHeight;
         
@@ -147,7 +161,8 @@ static NSString * const LabelIdentifier = @"LabelCell";
 {
     NSInteger rowCount = [self.collectionView numberOfSections];
     CGFloat height = self.itemInsets.top + self.itemInsets.bottom +
-                    rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY;
+                    rowCount * self.itemSize.height + (rowCount - 2) * self.interItemSpacingY;
+    height += 50 + self.interItemSpacingY * 3;
     
     NSInteger colCount = [self.collectionView numberOfItemsInSection:3];
     CGFloat width = self.itemInsets.left + self.itemInsets.right +

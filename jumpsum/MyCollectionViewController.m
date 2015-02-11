@@ -6,13 +6,18 @@
 //  Copyright (c) 2015 Tyler Cap. All rights reserved.
 //
 
+@import GoogleMobileAds;
+
 #import "MyCollectionViewController.h"
 
 static NSString * const CellIdentifier = @"TileCell";
 static NSString * const ButtonIdentifier = @"ButtonCell";
 static NSString * const LabelIdentifier = @"LabelCell";
+static NSString * const BannerIdentifier = @"BannerCell";
 static NSString * const CurrentScore = @"Current Score: ";
 static NSString * const HighScore = @"High Score: ";
+static NSString * const BannerAdId = @"ca-app-pub-3940256099942544/2934735716";
+static NSString * const InterstitialAdId = @"ca-app-pub-3940256099942544/4411468910";
 
 @implementation MyCollectionViewController
 
@@ -29,7 +34,9 @@ static NSString * const HighScore = @"High Score: ";
 {
     [super viewDidLoad];
     
-    _headerSections = 1;
+    // NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+    
+    _headerSections = 2;
     _footerSections = 1;
     
     self.tiles = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getSections]];
@@ -37,6 +44,20 @@ static NSString * const HighScore = @"High Score: ";
         NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getItems]];
         [self.tiles addObject:items];
     }
+}
+
+- (void)loadInterstitial
+{
+    self.interstitial = [[GADInterstitial alloc] init];
+    self.interstitial.adUnitID = InterstitialAdId;
+    
+    GADRequest *request = [GADRequest request];
+    self.interstitial.delegate = self;
+    [self.interstitial loadRequest:request];
+}
+
+- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
+    [self loadInterstitial];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -118,6 +139,11 @@ static NSString * const HighScore = @"High Score: ";
     return NO;
 }
 
+- (void)updateScoreNoCheck
+{
+    [self updateScore:NO];
+}
+
 - (void)updateScore:(Boolean)gameOverCheck
 {
     Boolean gameOver = gameOverCheck;
@@ -142,11 +168,11 @@ static NSString * const HighScore = @"High Score: ";
         }
     }
     
-    self.currentScoreLabel.label.text = [NSString stringWithFormat:@"%@%d", CurrentScore, currentScore];
+    self.currentScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", CurrentScore, (long)currentScore];
     
     if( gameOver ){
         // Display game over popup
-        NSString *scoreStr = [NSString stringWithFormat:@"Score: %d", currentScore];
+        NSString *scoreStr = [NSString stringWithFormat:@"Score: %ld", (long)currentScore];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                         message:scoreStr
                                                        delegate:self
@@ -164,11 +190,15 @@ static NSString * const HighScore = @"High Score: ";
 
 - (void)newGame
 {
+    if ([self.interstitial isReady]) {
+        [self.interstitial presentFromRootViewController:self];
+    }
+    
     [self.gameboard loadNewGame];
     
     [self.collectionView reloadData];
     
-    [self performSelector:@selector(updateScore:) withObject:NO afterDelay:0.0];
+    [self performSelector:@selector(updateScoreNoCheck) withObject:nil afterDelay:0.1];
 }
 
 - (void)signInOrOut
@@ -282,10 +312,14 @@ static NSString * const HighScore = @"High Score: ";
     numberOfItemsInSection:(NSInteger)section
 {
     if(section == 0){
+        // banner ad
+        return 1;
+    }
+    else if(section == 1){
         // header
         return 3;
     }
-    else if(section > [self.gameboard getSections]){
+    else if(section >= ([self.gameboard getSections] + _headerSections) ){
         // footer
         return 3;
     }
@@ -328,7 +362,24 @@ static NSString * const HighScore = @"High Score: ";
     
     UICollectionViewCell *cell = nil;
     if( section == 0 ){
-        
+        /*if( _bannerAdCell != nil ){
+            cell = _bannerAdCell;
+        }
+        else{*/
+            MyBannerCell *bannerCell = [collectionView
+                                        dequeueReusableCellWithReuseIdentifier:BannerIdentifier
+                                        forIndexPath:indexPath];
+            
+            
+            bannerCell.bannerAd.adUnitID = BannerAdId;
+            bannerCell.bannerAd.rootViewController = self;
+            [bannerCell.bannerAd loadRequest:[GADRequest request]];
+            
+            _bannerAdCell = bannerCell;
+            cell = bannerCell;
+        //}
+    }
+    if( section == 1 ){
         if(item == 0){
             if( _leaderboard != nil ){
                 cell = _leaderboard;
@@ -387,8 +438,7 @@ static NSString * const HighScore = @"High Score: ";
             }
         }
     }
-    if( section > [self.gameboard getSections] ){
-        
+    if( section >= ([self.gameboard getSections] + _headerSections) ){
         if(item == 0){
             if( _howTo != nil ){
                 cell = _howTo;
@@ -444,7 +494,6 @@ static NSString * const HighScore = @"High Score: ";
                 self.highScoreLabel = labelCell;
             }
         }
-
     }
     
     return cell;
