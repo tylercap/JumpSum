@@ -9,7 +9,7 @@
 #import "Gameboard.h"
 
 int values[7][5];
-static NSString * const Sandbox = @"GAMEBOARD.dat";
+static NSString * const Sandbox = @"Gameboard.plist";
 
 @implementation Gameboard
 
@@ -131,6 +131,8 @@ static NSString * const Sandbox = @"GAMEBOARD.dat";
     NSMutableArray *array = [self storeToArray];
     
     [array writeToFile:_dataPath atomically:YES];
+    
+    NSLog(@"Writing student to file: %@", _dataPath);
 }
 
 

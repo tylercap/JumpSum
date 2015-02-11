@@ -15,7 +15,7 @@
 #import "CellPair.h"
 
 @interface MyCollectionViewController : UICollectionViewController
-<UICollectionViewDataSource, UICollectionViewDelegate>
+<UICollectionViewDataSource>
 
 @property (nonatomic, weak) IBOutlet MyCollectionViewLayout *layout;
 @property(strong, nonatomic) Gameboard *gameboard;
@@ -24,12 +24,12 @@
 @property (nonatomic) NSInteger headerSections;
 @property (nonatomic) NSInteger footerSections;
 
-@property (weak, nonatomic) UIButton *restartGame;
-@property (weak, nonatomic) UIButton *howTo;
-@property (weak, nonatomic) UIButton *signInOut;
-@property (weak, nonatomic) UIButton *leaderboard;
-@property (weak, nonatomic) UILabel *currentScoreLabel;
-@property (weak, nonatomic) UILabel *highScoreLabel;
+@property (weak, nonatomic) MyButtonCell *restartGame;
+@property (weak, nonatomic) MyButtonCell *howTo;
+@property (weak, nonatomic) MyButtonCell *signInOut;
+@property (weak, nonatomic) MyButtonCell *leaderboard;
+@property (weak, nonatomic) MyLabelCell *currentScoreLabel;
+@property (weak, nonatomic) MyLabelCell *highScoreLabel;
 
 -(void)highlightValidTargets:(NSIndexPath *)indexPath
                    highlight:(Boolean)highlight;

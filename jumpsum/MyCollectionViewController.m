@@ -43,7 +43,7 @@ static NSString * const HighScore = @"High Score: ";
 {
     [super viewDidAppear:animated];
     
-    [self updateScore];
+    [self updateScore:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -58,6 +58,10 @@ static NSString * const HighScore = @"High Score: ";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    if (_gameboard != nil) {
+        [_gameboard saveToSandbox];
+    }
 }
 
 - (Boolean)jumpedTile:(NSIndexPath *)indexPath
@@ -105,7 +109,7 @@ static NSString * const HighScore = @"High Score: ";
                                    row:row
                                 column:column];
             
-            [self updateScore];
+            [self updateScore:YES];
             
             return YES;
         }
@@ -114,9 +118,9 @@ static NSString * const HighScore = @"High Score: ";
     return NO;
 }
 
-- (void)updateScore
+- (void)updateScore:(Boolean)gameOverCheck
 {
-    Boolean gameOver = YES;
+    Boolean gameOver = gameOverCheck;
     NSInteger currentScore = 0;
     
     for( int i=0; i<[self.gameboard getSections]; i++ ){
@@ -138,11 +142,38 @@ static NSString * const HighScore = @"High Score: ";
         }
     }
     
-    self.currentScoreLabel.text = [NSString stringWithFormat:@"%@%d", CurrentScore, currentScore];
+    self.currentScoreLabel.label.text = [NSString stringWithFormat:@"%@%d", CurrentScore, currentScore];
     
     if( gameOver ){
-        //TODO: Display game over popup
+        // Display game over popup
+        NSString *scoreStr = [NSString stringWithFormat:@"Score: %d", currentScore];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                        message:scoreStr
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"New Game", nil];
+        [alert show];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if( buttonIndex == 1 )
+        [self newGame];
+}
+
+- (void)newGame
+{
+    [self.gameboard loadNewGame];
+    
+    [self.collectionView reloadData];
+    
+    [self performSelector:@selector(updateScore:) withObject:NO afterDelay:0.0];
+}
+
+- (void)signInOrOut
+{
+    [self.leaderboard.button setHidden:(![self.leaderboard.button isHidden])];
 }
 
 - (NSMutableArray *)getValidTargets:(NSInteger)row
@@ -299,81 +330,119 @@ static NSString * const HighScore = @"High Score: ";
     if( section == 0 ){
         
         if(item == 0){
-            MyButtonCell *buttonCell = [collectionView
-                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
-                                        forIndexPath:indexPath];
-            
-            [buttonCell setLabel:@"Leaderboard"
-                       backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-                       textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
-                         rounded:NO];
-            
-            cell = buttonCell;
-            self.leaderboard = buttonCell.button;
+            if( _leaderboard != nil ){
+                cell = _leaderboard;
+            }
+            else{
+                MyButtonCell *buttonCell = [collectionView
+                                            dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                            forIndexPath:indexPath];
+                
+                [buttonCell setLabel:@"Leaderboard"
+                           backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+                           textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
+                             rounded:NO];
+                
+                cell = buttonCell;
+                self.leaderboard = buttonCell;
+                
+                [buttonCell.button setHidden:YES];
+            }
         }
         else if(item == 2){
-            MyButtonCell *buttonCell = [collectionView
-                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
-                                        forIndexPath:indexPath];
-            
-            [buttonCell setLabel:@"Sign In"
-                       backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
-                       textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
-                         rounded:NO];
-            
-            cell = buttonCell;
-            self.signInOut = buttonCell.button;
+            if( _signInOut != nil ){
+                cell = _signInOut;
+            }
+            else{
+                MyButtonCell *buttonCell = [collectionView
+                                            dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                            forIndexPath:indexPath];
+                
+                [buttonCell setLabel:@"Sign In"
+                           backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+                           textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
+                             rounded:NO];
+                
+                cell = buttonCell;
+                self.signInOut = buttonCell;
+                [buttonCell.button addTarget:self
+                                     action:@selector(signInOrOut)
+                           forControlEvents:UIControlEventTouchUpInside];
+            }
         }
         else if(item == 1){
-            MyLabelCell *labelCell = [collectionView
-                                        dequeueReusableCellWithReuseIdentifier:LabelIdentifier
-                                        forIndexPath:indexPath];
-            
-            [labelCell setLabel:CurrentScore
-                      textColor:[UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0]];
-            
-            cell = labelCell;
-            self.currentScoreLabel = labelCell.label;
+            if( _currentScoreLabel != nil ){
+                cell = _currentScoreLabel;
+            }
+            else{
+                MyLabelCell *labelCell = [collectionView
+                                          dequeueReusableCellWithReuseIdentifier:LabelIdentifier
+                                          forIndexPath:indexPath];
+                
+                [labelCell setLabel:CurrentScore
+                          textColor:[UIColor colorWithRed:1.0 green:0.5 blue:0.0 alpha:1.0]];
+                
+                cell = labelCell;
+                self.currentScoreLabel = labelCell;
+            }
         }
     }
     if( section > [self.gameboard getSections] ){
         
         if(item == 0){
-            MyButtonCell *buttonCell = [collectionView
-                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
-                                        forIndexPath:indexPath];
-            
-            [buttonCell setLabel:@"How To"
-                       backColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
-                       textColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
-                         rounded:NO];
-            
-            cell = buttonCell;
-            self.howTo = buttonCell.button;
+            if( _howTo != nil ){
+                cell = _howTo;
+            }
+            else{
+                MyButtonCell *buttonCell = [collectionView
+                                            dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                            forIndexPath:indexPath];
+                
+                [buttonCell setLabel:@"How To"
+                           backColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
+                           textColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
+                             rounded:NO];
+                
+                cell = buttonCell;
+                self.howTo = buttonCell;
+            }
         }
         else if(item == 2){
-            MyButtonCell *buttonCell = [collectionView
-                                        dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
-                                        forIndexPath:indexPath];
-            
-            [buttonCell setLabel:@"New Game"
-                       backColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
-                       textColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
-                         rounded:NO];
-            
-            cell = buttonCell;
-            self.restartGame = buttonCell.button;
+            if( _restartGame != nil ){
+                cell = _restartGame;
+            }
+            else{
+                MyButtonCell *buttonCell = [collectionView
+                                            dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
+                                            forIndexPath:indexPath];
+                
+                [buttonCell setLabel:@"New Game"
+                           backColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
+                           textColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
+                             rounded:NO];
+                
+                cell = buttonCell;
+                self.restartGame = buttonCell;
+                [buttonCell.button addTarget:self
+                                      action:@selector(newGame)
+                            forControlEvents:UIControlEventTouchUpInside];
+            }
         }
         else if(item == 1){
-            MyLabelCell *labelCell = [collectionView
-                                      dequeueReusableCellWithReuseIdentifier:LabelIdentifier
-                                      forIndexPath:indexPath];
-            
-            [labelCell setLabel:HighScore
-                      textColor:[UIColor colorWithRed:0.9 green:0.5 blue:0.0 alpha:1.0]];
-            
-            cell = labelCell;
-            self.highScoreLabel = labelCell.label;
+            if( _highScoreLabel != nil ){
+                cell = _highScoreLabel;
+            }
+            else{
+                MyLabelCell *labelCell = [collectionView
+                                          dequeueReusableCellWithReuseIdentifier:LabelIdentifier
+                                          forIndexPath:indexPath];
+                
+                [labelCell setLabel:HighScore
+                          textColor:[UIColor colorWithRed:0.9 green:0.5 blue:0.0 alpha:1.0]];
+                
+                cell = labelCell;
+                self.highScoreLabel = labelCell;
+            }
         }
 
     }

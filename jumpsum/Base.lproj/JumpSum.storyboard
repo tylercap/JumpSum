@@ -29,7 +29,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbb-SM-DHl">
-                                            <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" none="YES" button="YES" staticText="YES"/>
                                             </accessibility>
@@ -49,10 +49,10 @@
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="kbb-SM-DHl" firstAttribute="top" secondItem="GPJ-ua-NyV" secondAttribute="topMargin" id="Ydl-zh-Hbh"/>
-                                    <constraint firstItem="kbb-SM-DHl" firstAttribute="leading" secondItem="GPJ-ua-NyV" secondAttribute="leadingMargin" id="abZ-HJ-pDO"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="kbb-SM-DHl" secondAttribute="trailing" id="dEF-Bu-WMA"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="kbb-SM-DHl" secondAttribute="bottom" id="nMm-7g-h6u"/>
+                                    <constraint firstItem="kbb-SM-DHl" firstAttribute="top" secondItem="GPJ-ua-NyV" secondAttribute="topMargin" constant="-8" id="Ydl-zh-Hbh"/>
+                                    <constraint firstItem="kbb-SM-DHl" firstAttribute="leading" secondItem="GPJ-ua-NyV" secondAttribute="leadingMargin" constant="-8" id="abZ-HJ-pDO"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="kbb-SM-DHl" secondAttribute="trailing" constant="-8" id="dEF-Bu-WMA"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="kbb-SM-DHl" secondAttribute="bottom" constant="-8" id="nMm-7g-h6u"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="title" destination="kbb-SM-DHl" id="TmO-Xh-zvb"/>
@@ -66,7 +66,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hU-s8-k8n">
-                                            <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <state key="normal" title="Button">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,12 +76,11 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="2hU-s8-k8n" firstAttribute="top" secondItem="pOg-cR-c03" secondAttribute="topMargin" id="8h5-6G-zls"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="2hU-s8-k8n" secondAttribute="bottom" id="WWw-12-NR5"/>
-                                    <constraint firstItem="2hU-s8-k8n" firstAttribute="leading" secondItem="pOg-cR-c03" secondAttribute="leadingMargin" id="hn6-H6-am8"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="2hU-s8-k8n" secondAttribute="trailing" id="mOm-O9-nqS"/>
+                                    <constraint firstItem="2hU-s8-k8n" firstAttribute="top" secondItem="pOg-cR-c03" secondAttribute="topMargin" constant="-8" id="8h5-6G-zls"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="2hU-s8-k8n" secondAttribute="bottom" constant="-8" id="WWw-12-NR5"/>
+                                    <constraint firstItem="2hU-s8-k8n" firstAttribute="leading" secondItem="pOg-cR-c03" secondAttribute="leadingMargin" constant="-8" id="hn6-H6-am8"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="2hU-s8-k8n" secondAttribute="trailing" constant="-8" id="mOm-O9-nqS"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="button" destination="2hU-s8-k8n" id="3Ib-gA-CdV"/>
