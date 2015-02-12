@@ -15,6 +15,7 @@
     self = [super init];
     
     _docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    self.highScore = 0;
     
     [self loadFromSandbox];
     
@@ -23,7 +24,22 @@
 
 -(NSString *)getDocPath
 {
-    return _docPath;
+    return self.docPath;
+}
+
+-(NSInteger)getHighScore
+{
+    return self.highScore;
+}
+
+-(Boolean)setHighScoreIfGreater:(NSInteger)highScore
+{
+    if( highScore > self.highScore ){
+        self.highScore = highScore;
+        return YES;
+    }
+    
+    return NO;
 }
 
 -(NSString *)getValueAt:(NSInteger)row
@@ -59,9 +75,10 @@
     return array;
 }
 
-- (void)loadFromSandbox:(NSString *)dataPath
+- (void)loadFromSandbox:(NSString *)arrayPath
+              extraPath:(NSString *)highScorePath
 {
-    NSArray *array = [NSArray arrayWithContentsOfFile:dataPath];
+    NSArray *array = [NSArray arrayWithContentsOfFile:arrayPath];
     
     if ( array != nil && [array count] > 0 ) {
         [self loadFromArray:array];
@@ -69,13 +86,23 @@
     else{
         [self loadNewGame];
     }
+    
+    NSString *highScoreStr = [[NSString alloc]initWithContentsOfFile:highScorePath usedEncoding:nil error:nil];
+    if( highScoreStr != nil ){
+        [self setHighScoreIfGreater:[highScoreStr integerValue]];
+    }
 }
 
-- (void)saveToSandbox:(NSString *)dataPath
+- (void)saveToSandbox:(NSString *)arrayPath
+            extraPath:(NSString *)highScorePath
 {
     NSMutableArray *array = [self storeToArray];
     
-    [array writeToFile:dataPath atomically:YES];
+    [array writeToFile:arrayPath atomically:YES];
+    
+    NSString *highScoreStr = [NSString stringWithFormat:@"%ld",(long)self.highScore];
+
+    [highScoreStr writeToFile:highScorePath atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 }
 
 -(void)loadFromSandbox

@@ -10,6 +10,7 @@
 
 int values[7][5];
 static NSString * const Sandbox = @"GameboardL1.plist";
+static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 @implementation GameboardL1
 
@@ -70,20 +71,22 @@ static NSString * const Sandbox = @"GameboardL1.plist";
 
 - (void)loadFromSandbox
 {
-    if( _dataPath == nil ){
-        _dataPath = [[self getDocPath] stringByAppendingPathComponent:Sandbox];
+    if( _arrayPath == nil  || _highScorePath == nil ){
+        _arrayPath = [[self getDocPath] stringByAppendingPathComponent:Sandbox];
+        _highScorePath = [[self getDocPath] stringByAppendingPathComponent:HSSandbox];
     }
     
-    [self loadFromSandbox:_dataPath];
+    [self loadFromSandbox:_arrayPath extraPath:_highScorePath];
 }
 
 - (void)saveToSandbox
 {
-    if( _dataPath == nil ){
-        _dataPath = [[self getDocPath] stringByAppendingPathComponent:Sandbox];
+    if( _arrayPath == nil  || _highScorePath == nil ){
+        _arrayPath = [[self getDocPath] stringByAppendingPathComponent:Sandbox];
+        _highScorePath = [[self getDocPath] stringByAppendingPathComponent:HSSandbox];
     }
     
-    [self saveToSandbox:_dataPath];
+    [self saveToSandbox:_arrayPath extraPath:_highScorePath];
 }
 
 @end

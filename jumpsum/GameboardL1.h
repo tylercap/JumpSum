@@ -12,6 +12,7 @@ extern int values[7][5];
 
 @interface GameboardL1 : Gameboard
 
-@property (nonatomic, strong) NSString *dataPath;
+@property (nonatomic, strong) NSString *arrayPath;
+@property (nonatomic, strong) NSString *highScorePath;
 
 @end

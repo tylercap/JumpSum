@@ -170,9 +170,18 @@ static NSString * const InterstitialAdId = @"ca-app-pub-3940256099942544/4411468
     
     self.currentScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", CurrentScore, (long)currentScore];
     
+    NSInteger highScore = fmax( currentScore, [self.gameboard getHighScore] );
+    self.highScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", HighScore, (long)highScore];
+    
     if( gameOver ){
         // Display game over popup
         NSString *scoreStr = [NSString stringWithFormat:@"Score: %ld", (long)currentScore];
+        
+        Boolean newHigh = [self.gameboard setHighScoreIfGreater:currentScore];
+        if(newHigh){
+            scoreStr = [scoreStr stringByAppendingString:@"\nNew High Score!"];
+        }
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                         message:scoreStr
                                                        delegate:self

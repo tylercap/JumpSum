@@ -11,6 +11,10 @@
 @interface Gameboard : NSObject
 
 @property (nonatomic, strong) NSString *docPath;
+@property (nonatomic) NSInteger highScore;
+
+-(NSInteger)getHighScore;
+-(Boolean)setHighScoreIfGreater:(NSInteger)highScore;
 
 -(NSInteger)getIntValueAt:(NSInteger)row
                    column:(NSInteger)column;
@@ -30,7 +34,9 @@
 - (NSString *)getDocPath;
 - (void)saveToSandbox;
 - (void)loadFromSandbox;
-- (void)saveToSandbox:(NSString *)dataPath;
-- (void)loadFromSandbox:(NSString *)dataPath;
+- (void)saveToSandbox:(NSString *)arrayPath
+            extraPath:(NSString *)highScorePath;
+- (void)loadFromSandbox:(NSString *)arrayPath
+              extraPath:(NSString *)highScorePath;
 
 @end
