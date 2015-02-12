@@ -8,52 +8,29 @@
 
 #import "Gameboard.h"
 
-int values[7][5];
-static NSString * const Sandbox = @"Gameboard.plist";
-
 @implementation Gameboard
 
 - (id)init
 {
     self = [super init];
     
-    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    _dataPath = [docPath stringByAppendingPathComponent:Sandbox];
+    _docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     [self loadFromSandbox];
     
     return self;
 }
 
+-(NSString *)getDocPath
+{
+    return _docPath;
+}
+
 -(NSString *)getValueAt:(NSInteger)row
                  column:(NSInteger)column
 {
-    int val = values[row][column];
-    return [NSString stringWithFormat:@"%d",val];
-}
-
--(NSInteger)getIntValueAt:(NSInteger)row
-                 column:(NSInteger)column
-{
-    return values[row][column];
-}
-
--(void)setValueAt:(NSInteger)value
-              row:(NSInteger)row
-           column:(NSInteger)column
-{
-    values[row][column] = (int)value;
-}
-
--(NSInteger)getSections
-{
-    return 7;
-}
-
-
--(NSInteger)getItems
-{
-    return 5;
+    NSInteger val = [self getIntValueAt:row column:column];
+    return [NSString stringWithFormat:@"%ld",(long)val];
 }
 
 -(void)loadFromArray:(NSArray *)gameboard
@@ -62,7 +39,7 @@ static NSString * const Sandbox = @"Gameboard.plist";
         NSArray *row = gameboard[i];
         
         for( int j=0; j<row.count; j++ ){
-            values[i][j] = (int)[row[j] integerValue];
+            [self setValueAt:((int)[row[j] integerValue]) row:i column:j];
         }
     }
 }
@@ -70,53 +47,21 @@ static NSString * const Sandbox = @"Gameboard.plist";
 -(NSMutableArray *)storeToArray
 {
     NSMutableArray* array = [[NSMutableArray alloc] init];
-    for( int i=0; i<7; i++ ){
+    for( int i=0; i<[self getSections]; i++ ){
         NSMutableArray* row = [[NSMutableArray alloc] init];
         [array addObject:row];
         
-        for( int j=0; j<5; j++ ){
-            [row addObject:[NSString stringWithFormat:@"%d",values[i][j]]];
+        for( int j=0; j<[self getItems]; j++ ){
+            [row addObject:[self getValueAt:i column:j]];
         }
     }
     
     return array;
 }
 
--(void)loadNewGame
+- (void)loadFromSandbox:(NSString *)dataPath
 {
-    NSMutableArray *values= [[NSMutableArray alloc]init];
-    // randomly fill an array with 10 1, 2, and 3s; 4 10s; and 1 -1 for our values
-    for( int i=1; i<4; i++ ){
-        for( int j=0; j<10; j++ ){
-            [values addObject:[NSString stringWithFormat:@"%d",i]];
-        }
-    }
-    [values addObject:@"-1"];
-    for( int j=0; j<4; j++ ){
-        [values addObject:@"10"];
-    }
-    
-    int remaining = 35;
-    NSMutableArray* array = [[NSMutableArray alloc] init];
-    for( int i=0; i<7; i++ ){
-        NSMutableArray* row = [[NSMutableArray alloc] init];
-        [array addObject:row];
-        
-        for( int j=0; j<5; j++ ){
-            NSUInteger index = arc4random_uniform(remaining);
-            [row addObject:[values objectAtIndex:index]];
-            
-            [values removeObjectAtIndex:index];
-            remaining--;
-        }
-    }
-    
-    [self loadFromArray:array];
-}
-
-- (void)loadFromSandbox
-{
-    NSArray *array = [NSArray arrayWithContentsOfFile:_dataPath];
+    NSArray *array = [NSArray arrayWithContentsOfFile:dataPath];
     
     if ( array != nil && [array count] > 0 ) {
         [self loadFromArray:array];
@@ -126,14 +71,53 @@ static NSString * const Sandbox = @"Gameboard.plist";
     }
 }
 
-- (void)saveToSandbox
+- (void)saveToSandbox:(NSString *)dataPath
 {
     NSMutableArray *array = [self storeToArray];
     
-    [array writeToFile:_dataPath atomically:YES];
-    
-    NSLog(@"Writing student to file: %@", _dataPath);
+    [array writeToFile:dataPath atomically:YES];
 }
 
+-(void)loadFromSandbox
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+-(void)saveToSandbox
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+-(void)loadNewGame
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+-(NSInteger)getIntValueAt:(NSInteger)row
+                   column:(NSInteger)column
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return 0;
+}
+
+-(void)setValueAt:(NSInteger)value
+              row:(NSInteger)row
+           column:(NSInteger)column
+{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+-(NSInteger)getSections
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return 0;
+}
+
+
+-(NSInteger)getItems
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return 0;
+}
 
 @end

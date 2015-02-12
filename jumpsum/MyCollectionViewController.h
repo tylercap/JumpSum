@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MyCollectionViewCell.h"
 #import "Gameboard.h"
+#import "GameboardL1.h"
 #import "MyCollectionViewLayout.h"
 #import "MyButtonCell.h"
 #import "MyLabelCell.h"

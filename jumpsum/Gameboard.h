@@ -10,9 +10,7 @@
 
 @interface Gameboard : NSObject
 
-extern int values[7][5];
-
-@property (nonatomic, strong) NSString *dataPath;
+@property (nonatomic, strong) NSString *docPath;
 
 -(NSInteger)getIntValueAt:(NSInteger)row
                    column:(NSInteger)column;
@@ -25,14 +23,14 @@ extern int values[7][5];
 -(NSInteger)getItems; // columns
 
 -(void)loadFromArray:(NSArray *)gameboard;
-
 -(NSMutableArray *)storeToArray;
 
 -(void)loadNewGame;
 
+- (NSString *)getDocPath;
 - (void)saveToSandbox;
-
 - (void)loadFromSandbox;
-
+- (void)saveToSandbox:(NSString *)dataPath;
+- (void)loadFromSandbox:(NSString *)dataPath;
 
 @end

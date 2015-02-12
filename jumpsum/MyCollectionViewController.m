@@ -26,7 +26,7 @@ static NSString * const InterstitialAdId = @"ca-app-pub-3940256099942544/4411468
     if (_gameboard != nil) {
         return _gameboard;
     }
-    _gameboard = [[Gameboard alloc] init];
+    _gameboard = [[GameboardL1 alloc] init];
     return _gameboard;
 }
 
