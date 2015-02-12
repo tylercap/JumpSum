@@ -18,6 +18,7 @@ static NSString * const CurrentScore = @"Current Score: ";
 static NSString * const HighScore = @"High Score: ";
 static NSString * const BannerAdId = @"ca-app-pub-3940256099942544/2934735716";
 static NSString * const InterstitialAdId = @"ca-app-pub-3940256099942544/4411468910";
+static NSString * const kClientId = @"372283829499-n8amlirbhdjdstknvhnqt4q93nkbba3o.apps.googleusercontent.com";
 
 @implementation MyCollectionViewController
 

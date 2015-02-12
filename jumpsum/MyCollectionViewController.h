@@ -15,6 +15,7 @@
 #import "MyLabelCell.h"
 #import "CellPair.h"
 #import "MyBannerCell.h"
+#import <GooglePlayGames/GooglePlayGames.h>
 
 @interface MyCollectionViewController : UICollectionViewController
 <UICollectionViewDataSource, GADInterstitialDelegate>
