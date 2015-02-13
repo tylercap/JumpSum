@@ -71,7 +71,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 {
     [super viewDidAppear:animated];
     
-    [self updateScore:YES];
+    [self updateScore:YES autoLoadNew:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -137,7 +137,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                                    row:row
                                 column:column];
             
-            [self updateScore:YES];
+            [self updateScore:YES autoLoadNew:NO];
             
             return YES;
         }
@@ -148,10 +148,11 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 
 - (void)updateScoreNoCheck
 {
-    [self updateScore:NO];
+    [self updateScore:NO autoLoadNew:NO];
 }
 
 - (void)updateScore:(Boolean)gameOverCheck
+        autoLoadNew:(Boolean)autoReload
 {
     Boolean gameOver = gameOverCheck;
     NSInteger currentScore = 0;
@@ -181,20 +182,27 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     self.highScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", HighScore, (long)highScore];
     
     if( gameOver ){
-        // Display game over popup
-        NSString *scoreStr = [NSString stringWithFormat:@"Score: %ld", (long)currentScore];
-        
-        Boolean newHigh = [self.gameboard setHighScoreIfGreater:currentScore];
-        if(newHigh){
-            scoreStr = [scoreStr stringByAppendingString:@"\nNew High Score!"];
+        if( autoReload ){
+            [self newGame];
         }
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
-                                                        message:scoreStr
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"New Game", nil];
-        [alert show];
+        else{
+            [self.gameboard updateAchievements:currentScore];
+            
+            // Display game over popup
+            NSString *scoreStr = [NSString stringWithFormat:@"Score: %ld", (long)currentScore];
+            
+            Boolean newHigh = [self.gameboard setHighScoreIfGreater:currentScore];
+            if(newHigh){
+                scoreStr = [scoreStr stringByAppendingString:@"\nNew High Score!"];
+            }
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
+                                                            message:scoreStr
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:@"New Game", nil];
+            [alert show];
+        }
     }
 }
 
@@ -227,6 +235,11 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     }
 }
 
+- (void)openLeaderboard
+{
+    [[GPGLauncherController sharedInstance] presentLeaderboardWithLeaderboardId:[self.gameboard getLeaderboardId]];
+}
+
 - (void)refreshInterfaceBasedOnSignIn {
     if( _silentlySigningIn ){
         [self.signInOut setHidden:YES];
@@ -248,9 +261,9 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 
 - (void)didFinishGamesSignInWithError:(NSError *)error {
     if (error) {
-        NSLog(@"Received an error while signing in %@", [error localizedDescription]);
+        //NSLog(@"Received an error while signing in %@", [error localizedDescription]);
     } else {
-        NSLog(@"Signed in!");
+        //NSLog(@"Signed in!");
     }
     
     _silentlySigningIn = NO;
@@ -259,9 +272,9 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 
 - (void)didFinishGamesSignOutWithError:(NSError *)error {
     if (error) {
-        NSLog(@"Received an error while signing out %@", [error localizedDescription]);
+        //NSLog(@"Received an error while signing out %@", [error localizedDescription]);
     } else {
-        NSLog(@"Signed out!");
+        //NSLog(@"Signed out!");
     }
     
     _silentlySigningIn = NO;
@@ -458,6 +471,10 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                 
                 cell = buttonCell;
                 self.leaderboard = buttonCell;
+                
+                [buttonCell.button addTarget:self
+                                      action:@selector(openLeaderboard)
+                            forControlEvents:UIControlEventTouchUpInside];
                 
                 [buttonCell.button setHidden:YES];
             }

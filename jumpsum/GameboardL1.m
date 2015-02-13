@@ -89,4 +89,31 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
     [self saveToSandbox:_arrayPath extraPath:_highScorePath];
 }
 
+// google play games
+
+- (NSString *)getLeaderboardId
+{
+    return @"CgkItMu16qgJEAIQAQ";
+}
+
+- (NSString *)getOver60Id
+{
+    return @"CgkItMu16qgJEAIQBA";
+}
+
+- (NSString *)getOver80Id
+{
+    return @"CgkItMu16qgJEAIQAw";
+}
+
+- (NSString *)getOver90Id
+{
+    return @"CgkItMu16qgJEAIQAg";
+}
+
+- (NSString *)getPerfectId
+{
+    return @"CgkItMu16qgJEAIQBg";
+}
+
 @end

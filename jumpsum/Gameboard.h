@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GooglePlayGames/GooglePlayGames.h>
 
 @interface Gameboard : NSObject
 
@@ -38,5 +39,22 @@
             extraPath:(NSString *)highScorePath;
 - (void)loadFromSandbox:(NSString *)arrayPath
               extraPath:(NSString *)highScorePath;
+
+// for google play games
+- (void)updateAchievements:(NSInteger)score;
+
+- (NSString *)get5times90Id;
+- (NSString *)get20times90Id;
+- (NSString *)get5times100Id;
+- (NSString *)get100times95Id;
+- (NSString *)get20times100Id;
+- (NSString *)get10000gamesId;
+- (NSString *)get10000pointsId;
+
+- (NSString *)getLeaderboardId;
+- (NSString *)getOver60Id;
+- (NSString *)getOver80Id;
+- (NSString *)getOver90Id;
+- (NSString *)getPerfectId;
 
 @end
