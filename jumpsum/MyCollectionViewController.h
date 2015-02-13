@@ -18,13 +18,15 @@
 #import <GooglePlayGames/GooglePlayGames.h>
 
 @interface MyCollectionViewController : UICollectionViewController
-<UICollectionViewDataSource, GADInterstitialDelegate>
+<UICollectionViewDataSource, GADInterstitialDelegate, GPGStatusDelegate>
 
 @property (nonatomic, weak) IBOutlet MyCollectionViewLayout *layout;
 @property(strong, nonatomic) Gameboard *gameboard;
 @property(strong, nonatomic) NSMutableArray *tiles;
 
 @property (strong, nonatomic) GADInterstitial *interstitial;
+@property (nonatomic) Boolean signedIn;
+@property (nonatomic) Boolean silentlySigningIn;
 
 @property (nonatomic) NSInteger headerSections;
 @property (nonatomic) NSInteger footerSections;

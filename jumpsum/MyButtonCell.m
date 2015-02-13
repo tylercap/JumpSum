@@ -36,4 +36,9 @@
     self.button.layer.masksToBounds = YES;
 }
 
+- (void)setLabel:(NSString *)value
+{
+    [self.button setTitle:value forState:UIControlStateNormal];
+}
+
 @end

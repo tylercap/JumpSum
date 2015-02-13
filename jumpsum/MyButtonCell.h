@@ -11,6 +11,8 @@
 @interface MyButtonCell : UICollectionViewCell
 @property (nonatomic, weak) IBOutlet UIButton *button;
 
+-(void) setLabel:(NSString *) value;
+
 -(void) setLabel:(NSString *) value
        backColor:(UIColor *) back
        textColor:(UIColor *) text

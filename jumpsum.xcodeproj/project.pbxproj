@@ -503,7 +503,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = jumpsum;
 			};
 			name = Debug;
 		};
@@ -519,7 +519,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = jumpsum;
 			};
 			name = Release;
 		};
@@ -537,7 +537,7 @@
 				);
 				INFOPLIST_FILE = jumpsumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = jumpsumTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jumpsum.app/jumpsum";
 			};
 			name = Debug;
@@ -552,7 +552,7 @@
 				);
 				INFOPLIST_FILE = jumpsumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = jumpsumTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jumpsum.app/jumpsum";
 			};
 			name = Release;

@@ -16,9 +16,12 @@ static NSString * const LabelIdentifier = @"LabelCell";
 static NSString * const BannerIdentifier = @"BannerCell";
 static NSString * const CurrentScore = @"Current Score: ";
 static NSString * const HighScore = @"High Score: ";
+static NSString * const SignIn = @"Sign In";
+static NSString * const SignOut = @"Sign Out";
 static NSString * const BannerAdId = @"ca-app-pub-3940256099942544/2934735716";
 static NSString * const InterstitialAdId = @"ca-app-pub-3940256099942544/4411468910";
-static NSString * const kClientId = @"372283829499-n8amlirbhdjdstknvhnqt4q93nkbba3o.apps.googleusercontent.com";
+static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmutg3h6dtu.apps.googleusercontent.com";
+// free: static NSString * const GoogleClientId = @"320198239668-quml3u6s5mch28jvq0vpdeutg8relg25.apps.googleusercontent.com";
 
 @implementation MyCollectionViewController
 
@@ -35,10 +38,13 @@ static NSString * const kClientId = @"372283829499-n8amlirbhdjdstknvhnqt4q93nkbb
 {
     [super viewDidLoad];
     
-    // NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
-    
     _headerSections = 2;
     _footerSections = 1;
+    _signedIn = NO;
+    
+    [GPGManager sharedInstance].statusDelegate = self;
+    _silentlySigningIn = [[GPGManager sharedInstance] signInWithClientID:GoogleClientId silently:YES];
+    [self refreshInterfaceBasedOnSignIn];
     
     self.tiles = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getSections]];
     for( int i = 0; i < [self.gameboard getSections]; i++ ){
@@ -213,7 +219,53 @@ static NSString * const kClientId = @"372283829499-n8amlirbhdjdstknvhnqt4q93nkbb
 
 - (void)signInOrOut
 {
-    [self.leaderboard.button setHidden:(![self.leaderboard.button isHidden])];
+    if( _signedIn ){
+        [[GPGManager sharedInstance] signOut];
+    }
+    else{
+        [[GPGManager sharedInstance] signInWithClientID:GoogleClientId silently:NO];
+    }
+}
+
+- (void)refreshInterfaceBasedOnSignIn {
+    if( _silentlySigningIn ){
+        [self.signInOut setHidden:YES];
+    }
+    else{
+        [self.signInOut setHidden:NO];
+    }
+    
+    _signedIn = [GPGManager sharedInstance].isSignedIn;
+    [self.leaderboard.button setHidden:!_signedIn];
+    
+    if( _signedIn ){
+        [self.signInOut setLabel:SignOut];
+    }
+    else{
+        [self.signInOut setLabel:SignIn];
+    }
+}
+
+- (void)didFinishGamesSignInWithError:(NSError *)error {
+    if (error) {
+        NSLog(@"Received an error while signing in %@", [error localizedDescription]);
+    } else {
+        NSLog(@"Signed in!");
+    }
+    
+    _silentlySigningIn = NO;
+    [self refreshInterfaceBasedOnSignIn];
+}
+
+- (void)didFinishGamesSignOutWithError:(NSError *)error {
+    if (error) {
+        NSLog(@"Received an error while signing out %@", [error localizedDescription]);
+    } else {
+        NSLog(@"Signed out!");
+    }
+    
+    _silentlySigningIn = NO;
+    [self refreshInterfaceBasedOnSignIn];
 }
 
 - (NSMutableArray *)getValidTargets:(NSInteger)row
@@ -419,7 +471,7 @@ static NSString * const kClientId = @"372283829499-n8amlirbhdjdstknvhnqt4q93nkbb
                                             dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
                                             forIndexPath:indexPath];
                 
-                [buttonCell setLabel:@"Sign In"
+                [buttonCell setLabel:SignIn
                            backColor:[UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
                            textColor:[UIColor colorWithWhite:1.0 alpha:1.0]
                              rounded:NO];
