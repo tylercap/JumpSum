@@ -225,6 +225,14 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     [self performSelector:@selector(updateScoreNoCheck) withObject:nil afterDelay:0.1];
 }
 
+- (void)showHowTo
+{
+    UIStoryboard *sb = [self storyboard];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"HowToPage"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:NULL];
+}
+
 - (void)signInOrOut
 {
     if( _signedIn ){
@@ -534,6 +542,9 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                 
                 cell = buttonCell;
                 self.howTo = buttonCell;
+                [buttonCell.button addTarget:self
+                                      action:@selector(showHowTo)
+                            forControlEvents:UIControlEventTouchUpInside];
             }
         }
         else if(item == 2){
