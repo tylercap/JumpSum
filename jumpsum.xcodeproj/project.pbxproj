@@ -22,9 +22,6 @@
 		D46CD3DA1A8D226300BB075E /* GameboardL1.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CD3D91A8D226300BB075E /* GameboardL1.m */; };
 		D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */; };
 		D46CD3E01A8D475000BB075E /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DF1A8D475000BB075E /* GooglePlus.framework */; };
-		D46CD3E21A8D476900BB075E /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D46CD3E11A8D476900BB075E /* GooglePlus.bundle */; };
-		D46CD3E41A8D499E00BB075E /* GooglePlayGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3E31A8D499E00BB075E /* GooglePlayGames.framework */; };
-		D46CD3E61A8D49A900BB075E /* GooglePlayGames.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D46CD3E51A8D49A900BB075E /* GooglePlayGames.bundle */; };
 		D46CD3E81A8D4A0B00BB075E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3E71A8D4A0B00BB075E /* libc++.dylib */; };
 		D46CD3EA1A8D4A1700BB075E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3E91A8D4A1700BB075E /* libz.dylib */; };
 		D46CD3EC1A8D4A2800BB075E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3EB1A8D4A2800BB075E /* QuartzCore.framework */; };
@@ -40,6 +37,9 @@
 		D46CD4001A8D4B6C00BB075E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3FF1A8D4B6C00BB075E /* Security.framework */; };
 		D46CD4021A8D4B7700BB075E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */; };
 		D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D497E61E1A8565EA00CDC930 /* MyButtonCell.m */; };
+		D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */; };
+		D4EEC5A11A8EAF3000F2A7D1 /* GooglePlayGames.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */; };
+		D4EEC5A31A8EAF4F00F2A7D1 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */; };
 		D4F72BE21A8BEF73002F5B25 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */; };
 		D4F72BE51A8BF208002F5B25 /* MyBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */; };
 /* End PBXBuildFile section */
@@ -82,9 +82,6 @@
 		D46CD3D91A8D226300BB075E /* GameboardL1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL1.m; sourceTree = "<group>"; };
 		D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		D46CD3DF1A8D475000BB075E /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
-		D46CD3E11A8D476900BB075E /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
-		D46CD3E31A8D499E00BB075E /* GooglePlayGames.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlayGames.framework; sourceTree = "<group>"; };
-		D46CD3E51A8D49A900BB075E /* GooglePlayGames.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlayGames.bundle; sourceTree = "<group>"; };
 		D46CD3E71A8D4A0B00BB075E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		D46CD3E91A8D4A1700BB075E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D46CD3EB1A8D4A2800BB075E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -101,6 +98,9 @@
 		D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D497E61D1A8565EA00CDC930 /* MyButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButtonCell.h; sourceTree = "<group>"; };
 		D497E61E1A8565EA00CDC930 /* MyButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButtonCell.m; sourceTree = "<group>"; };
+		D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlayGames.framework; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.framework"; sourceTree = "<group>"; };
+		D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlayGames.bundle; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.bundle"; sourceTree = "<group>"; };
+		D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
 		D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D4F72BE31A8BF208002F5B25 /* MyBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBannerCell.h; sourceTree = "<group>"; };
 		D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBannerCell.m; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 				D46CD3EA1A8D4A1700BB075E /* libz.dylib in Frameworks */,
 				D46CD3E81A8D4A0B00BB075E /* libc++.dylib in Frameworks */,
 				D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */,
-				D46CD3E41A8D499E00BB075E /* GooglePlayGames.framework in Frameworks */,
+				D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */,
 				D46CD3E01A8D475000BB075E /* GooglePlus.framework in Frameworks */,
 				D4F72BE21A8BEF73002F5B25 /* GoogleMobileAds.framework in Frameworks */,
 			);
@@ -251,9 +251,9 @@
 				D46CD3EB1A8D4A2800BB075E /* QuartzCore.framework */,
 				D46CD3E91A8D4A1700BB075E /* libz.dylib */,
 				D46CD3E71A8D4A0B00BB075E /* libc++.dylib */,
-				D46CD3E51A8D49A900BB075E /* GooglePlayGames.bundle */,
-				D46CD3E31A8D499E00BB075E /* GooglePlayGames.framework */,
-				D46CD3E11A8D476900BB075E /* GooglePlus.bundle */,
+				D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */,
+				D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */,
+				D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */,
 				D46CD3DF1A8D475000BB075E /* GooglePlus.framework */,
 				D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */,
 				D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */,
@@ -342,9 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D40ADA2E1A83BFAD00E23C48 /* JumpSum.storyboard in Resources */,
+				D4EEC5A31A8EAF4F00F2A7D1 /* GooglePlus.bundle in Resources */,
 				D40ADA331A83BFAD00E23C48 /* LaunchScreen.xib in Resources */,
-				D46CD3E21A8D476900BB075E /* GooglePlus.bundle in Resources */,
-				D46CD3E61A8D49A900BB075E /* GooglePlayGames.bundle in Resources */,
+				D4EEC5A11A8EAF3000F2A7D1 /* GooglePlayGames.bundle in Resources */,
 				D40ADA301A83BFAD00E23C48 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +498,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/tcap/Downloads/GooglePlayGames-iOS-SDK.v3.1.1",
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -514,6 +515,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/tcap/Downloads/GooglePlayGames-iOS-SDK.v3.1.1",
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
