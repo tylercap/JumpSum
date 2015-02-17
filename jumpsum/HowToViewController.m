@@ -18,9 +18,9 @@
     UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 20.0, size.width, 44.0)];
     navBar.barStyle = UIBarStyleDefault;
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(Back)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(Done)];
     UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"How To"];
-    item.leftBarButtonItem = backButton;
+    item.rightBarButtonItem = doneButton;
     item.hidesBackButton = YES;
     [navBar pushNavigationItem:item animated:NO];
     
@@ -40,7 +40,7 @@
 }
  */
 
-- (IBAction)Back
+- (IBAction)Done
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
