@@ -18,10 +18,10 @@ static NSString * const CurrentScore = @"Current Score: ";
 static NSString * const HighScore = @"High Score: ";
 static NSString * const SignIn = @"Sign In";
 static NSString * const SignOut = @"Sign Out";
-static NSString * const BannerAdId = @"ca-app-pub-3940256099942544/2934735716";
-static NSString * const InterstitialAdId = @"ca-app-pub-3940256099942544/4411468910";
+static NSString * const BannerAdId = @"ca-app-pub-8484316959485082/7478851650";
+static NSString * const InterstitialAdId = @"ca-app-pub-8484316959485082/8955584856";
 static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmutg3h6dtu.apps.googleusercontent.com";
-// free: static NSString * const GoogleClientId = @"320198239668-quml3u6s5mch28jvq0vpdeutg8relg25.apps.googleusercontent.com";
+// free id: static NSString * const GoogleClientId = @"320198239668-quml3u6s5mch28jvq0vpdeutg8relg25.apps.googleusercontent.com";
 
 @implementation MyCollectionViewController
 

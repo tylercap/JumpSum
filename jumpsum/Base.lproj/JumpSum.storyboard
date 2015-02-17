@@ -128,7 +128,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="0.13486013099999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="osq-NG-gsj" firstAttribute="top" secondItem="gSk-i4-N9I" secondAttribute="topMargin" constant="-8" id="02X-5d-23O"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="osq-NG-gsj" secondAttribute="bottom" constant="-8" id="mi7-ya-l0n"/>
@@ -182,7 +181,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-1s-xkR">
                                 <rect key="frame" x="26" y="196" width="548" height="244"/>
-                                <mutableString key="text">Tiles can be moved by dragging and dropping them.  A numbered tile can only be moved under the following circumstances.  The tile must be two spaces away from an open space, and there must be another numbered tile in between the first numbered tile and the open space.  When one numbered tile jumps over another, the numbers on the tiles are added together, and the result is placed in the space that was originally open.  Let\'s say tiles A, B, and C are laid out in a row.  If tile A is currently 7, tile B is currently 4, and tile C is currently open, tile A could be moved over tile B.  Afterwards, tile C would become 11, and tiles A and B would both be open.  The game is over once there are no valid moves remaining.  An example of the gameplay is demonstrated below.</mutableString>
+                                <string key="text">Tiles can be moved by dragging and dropping them.  A numbered tile can only be moved under the following circumstances.  The tile must be two spaces away from an open space, and there must be another numbered tile in between the first numbered tile and the open space.  When one numbered tile jumps over another, the numbers on the tiles are added together, and the result is placed in the space that was originally open.  Let\'s say tiles A, B, and C are laid out in a row.  If tile A is currently 7, tile B is currently 4, and tile C is currently open, tile A could be moved over tile B.  Afterwards, tile C would become 11, and tiles A and B would both be open.  The game is over once there are no valid moves remaining.  An example of the gameplay is demonstrated below.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
