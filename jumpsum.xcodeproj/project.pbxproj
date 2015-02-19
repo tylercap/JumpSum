@@ -18,7 +18,6 @@
 		D40ADA4A1A83C31E00E23C48 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA491A83C31E00E23C48 /* MyCollectionViewCell.m */; };
 		D40ADA4D1A83C3EB00E23C48 /* Gameboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */; };
 		D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */; };
-		D461C0101A92864600F4617C /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D461C00F1A92864600F4617C /* MyScrollView.m */; };
 		D462260B1A8A9B8500CBB758 /* CellPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D462260A1A8A9B8500CBB758 /* CellPair.m */; };
 		D46CD3DA1A8D226300BB075E /* GameboardL1.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CD3D91A8D226300BB075E /* GameboardL1.m */; };
 		D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */; };
@@ -38,6 +37,7 @@
 		D46CD4001A8D4B6C00BB075E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3FF1A8D4B6C00BB075E /* Security.framework */; };
 		D46CD4021A8D4B7700BB075E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */; };
 		D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D497E61E1A8565EA00CDC930 /* MyButtonCell.m */; };
+		D4B961E71A96388A00322089 /* HowToChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B961E61A96388A00322089 /* HowToChildViewController.m */; };
 		D4E3EFEE1A9277C100CEB0DB /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E3EFED1A9277C100CEB0DB /* HowToViewController.m */; };
 		D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */; };
 		D4EEC5A11A8EAF3000F2A7D1 /* GooglePlayGames.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */; };
@@ -78,8 +78,6 @@
 		D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gameboard.m; sourceTree = "<group>"; };
 		D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewLayout.h; sourceTree = "<group>"; };
 		D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewLayout.m; sourceTree = "<group>"; };
-		D461C00E1A92864600F4617C /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
-		D461C00F1A92864600F4617C /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
 		D46226091A8A9B8500CBB758 /* CellPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPair.h; sourceTree = "<group>"; };
 		D462260A1A8A9B8500CBB758 /* CellPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPair.m; sourceTree = "<group>"; };
 		D46CD3D81A8D226300BB075E /* GameboardL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL1.h; sourceTree = "<group>"; };
@@ -102,6 +100,8 @@
 		D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D497E61D1A8565EA00CDC930 /* MyButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButtonCell.h; sourceTree = "<group>"; };
 		D497E61E1A8565EA00CDC930 /* MyButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButtonCell.m; sourceTree = "<group>"; };
+		D4B961E51A96388A00322089 /* HowToChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToChildViewController.h; sourceTree = "<group>"; };
+		D4B961E61A96388A00322089 /* HowToChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToChildViewController.m; sourceTree = "<group>"; };
 		D4E3EFEC1A9277C100CEB0DB /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
 		D4E3EFED1A9277C100CEB0DB /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
 		D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlayGames.framework; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.framework"; sourceTree = "<group>"; };
@@ -170,19 +170,12 @@
 		D40ADA211A83BFAD00E23C48 /* jumpsum */ = {
 			isa = PBXGroup;
 			children = (
+				D4B961E91A9651EA00322089 /* View */,
+				D4B961E81A96515500322089 /* HowTo */,
 				D46CD3DC1A8D22E800BB075E /* Model */,
 				D46CD3DB1A8D22CC00BB075E /* Cells */,
-				D40ADA2C1A83BFAD00E23C48 /* JumpSum.storyboard */,
 				D40ADA261A83BFAD00E23C48 /* AppDelegate.h */,
 				D40ADA271A83BFAD00E23C48 /* AppDelegate.m */,
-				D40ADA291A83BFAD00E23C48 /* MyCollectionViewController.h */,
-				D40ADA2A1A83BFAD00E23C48 /* MyCollectionViewController.m */,
-				D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */,
-				D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */,
-				D4E3EFEC1A9277C100CEB0DB /* HowToViewController.h */,
-				D4E3EFED1A9277C100CEB0DB /* HowToViewController.m */,
-				D461C00E1A92864600F4617C /* MyScrollView.h */,
-				D461C00F1A92864600F4617C /* MyScrollView.m */,
 				D40ADA2F1A83BFAD00E23C48 /* Images.xcassets */,
 				D40ADA311A83BFAD00E23C48 /* LaunchScreen.xib */,
 				D40ADA221A83BFAD00E23C48 /* Supporting Files */,
@@ -269,6 +262,29 @@
 				D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		D4B961E81A96515500322089 /* HowTo */ = {
+			isa = PBXGroup;
+			children = (
+				D4E3EFEC1A9277C100CEB0DB /* HowToViewController.h */,
+				D4E3EFED1A9277C100CEB0DB /* HowToViewController.m */,
+				D4B961E51A96388A00322089 /* HowToChildViewController.h */,
+				D4B961E61A96388A00322089 /* HowToChildViewController.m */,
+			);
+			name = HowTo;
+			sourceTree = "<group>";
+		};
+		D4B961E91A9651EA00322089 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D40ADA2C1A83BFAD00E23C48 /* JumpSum.storyboard */,
+				D40ADA291A83BFAD00E23C48 /* MyCollectionViewController.h */,
+				D40ADA2A1A83BFAD00E23C48 /* MyCollectionViewController.m */,
+				D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */,
+				D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +389,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D461C0101A92864600F4617C /* MyScrollView.m in Sources */,
 				D40ADA2B1A83BFAD00E23C48 /* MyCollectionViewController.m in Sources */,
 				D4E3EFEE1A9277C100CEB0DB /* HowToViewController.m in Sources */,
 				D462260B1A8A9B8500CBB758 /* CellPair.m in Sources */,
+				D4B961E71A96388A00322089 /* HowToChildViewController.m in Sources */,
 				D46CD3DA1A8D226300BB075E /* GameboardL1.m in Sources */,
 				D40ADA281A83BFAD00E23C48 /* AppDelegate.m in Sources */,
 				D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */,
@@ -513,7 +529,7 @@
 					"/Users/tcap/Downloads/GooglePlayGames-iOS-SDK.v3.1.1",
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = jumpsum;
@@ -530,7 +546,7 @@
 					"/Users/tcap/Downloads/GooglePlayGames-iOS-SDK.v3.1.1",
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = jumpsum;

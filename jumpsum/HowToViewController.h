@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HowToChildViewController.h"
 
-@interface HowToViewController : UIViewController
+@interface HowToViewController : UIViewController <UIPageViewControllerDataSource>
 
-@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) NSArray *pageTitles;
+@property (strong, nonatomic) NSArray *pageTextFields;
+@property (strong, nonatomic) NSArray *pageImages;
 
 @end
