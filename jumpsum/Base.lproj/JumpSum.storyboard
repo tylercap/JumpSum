@@ -187,17 +187,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-2u-3OI">
-                                <rect key="frame" x="16" y="85" width="568" height="22"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="5.2143568640000001e-05" blue="0.63578464670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="16" y="70" width="568" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="3.609028618933923e-05" blue="0.44004755434782605" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.30228381269999999" green="0.5660414788" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="pNY-2u-3OI" secondAttribute="trailing" id="CDe-Fz-xln"/>
                             <constraint firstItem="pNY-2u-3OI" firstAttribute="leading" secondItem="nv3-gb-CZ2" secondAttribute="leadingMargin" id="Jsx-lm-RK6"/>
-                            <constraint firstItem="pNY-2u-3OI" firstAttribute="top" secondItem="P5h-3d-Sbb" secondAttribute="bottom" constant="65" id="ZYk-ma-X81"/>
+                            <constraint firstItem="pNY-2u-3OI" firstAttribute="top" secondItem="P5h-3d-Sbb" secondAttribute="bottom" constant="50" id="ZYk-ma-X81"/>
                         </constraints>
                     </view>
                     <connections>

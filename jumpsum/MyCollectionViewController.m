@@ -229,7 +229,12 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 {
     UIStoryboard *sb = [self storyboard];
     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"HowToPage"];
-    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    vc.view.backgroundColor = [[self.collectionView backgroundColor] colorWithAlphaComponent:0.9];
+    
+    [vc setModalPresentationStyle:UIModalPresentationOverFullScreen];
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self presentViewController:vc animated:YES completion:NULL];
 }
 

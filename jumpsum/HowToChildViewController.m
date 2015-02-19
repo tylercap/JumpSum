@@ -15,7 +15,7 @@
     [super viewDidLoad];
     
     CGSize size = [UIScreen mainScreen].bounds.size;
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 20.0, size.width, 44.0)];
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0.0, size.width, 44.0)];
     navBar.barStyle = UIBarStyleDefault;
     
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(Done)];
@@ -27,7 +27,7 @@
     [self.view addSubview:navBar];
     
     self.textField.text = self.textValue;
-    [self.textField sizeToFit];
+    //[self.textField sizeToFit];
 }
 
 - (IBAction)Done

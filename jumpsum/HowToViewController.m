@@ -26,7 +26,7 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     // Change the size of page view controller
-    self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height); // - 30
+    self.pageViewController.view.frame = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height - 20);
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
@@ -93,7 +93,7 @@
 {
     NSString *objective = @"The objective of the game is to jump the tiles over one another to achieve the highest total on a single tile.  The maximum score achievable is 100.";
     
-    NSString *gameplay = @"Tiles can be moved by dragging and dropping them.  A numbered tile can only be moved under the following circumstances.  The tile must be two spaces away from an open space, and there must be another numbered tile in between the first numbered tile and the open space.  When one numbered tile jumps over another, the numbers on the tiles are added together, and the result is placed in the space that was originally open.  Let\'s say tiles A, B, and C are laid out in a row.  If tile A is currently 7, tile B is currently 4, and tile C is currently open, tile A could be moved over tile B.  Afterwards, tile C would become 11, and tiles A and B would both be open.  The game is over once there are no valid moves remaining.  An example of the gameplay is demonstrated below.";
+    NSString *gameplay = @"Tiles can be moved by dragging and dropping them.  A numbered tile can only be moved under the following circumstances.  The tile must be two spaces away from an open space, and there must be another numbered tile in between the first numbered tile and the open space.  When one numbered tile jumps over another, the numbers on the tiles are added together, and the result is placed in the space that was originally open.  Let\'s say tiles A, B, and C are laid out in a row.  If tile A is currently 7, tile B is currently 4, and tile C is currently open, tile A could be moved over tile B.  Afterwards, tile C would become 11, and tiles A and B would both be open.  The game is over once there are no valid moves remaining.";
     
     NSString *scoring = @"The score is equal to the highest value on any of the tiles.";
     
