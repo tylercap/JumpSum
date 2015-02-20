@@ -192,14 +192,20 @@
                                 <color key="textColor" red="0.0" green="3.609028618933923e-05" blue="0.44004755434782605" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ru2-5Y-NHX">
+                                <rect key="frame" x="180" y="129" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="ru2-5Y-NHX" firstAttribute="top" secondItem="pNY-2u-3OI" secondAttribute="bottom" constant="20" id="B4k-7a-YgY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pNY-2u-3OI" secondAttribute="trailing" id="CDe-Fz-xln"/>
                             <constraint firstItem="pNY-2u-3OI" firstAttribute="leading" secondItem="nv3-gb-CZ2" secondAttribute="leadingMargin" id="Jsx-lm-RK6"/>
+                            <constraint firstAttribute="centerX" secondItem="ru2-5Y-NHX" secondAttribute="centerX" id="Lsc-6q-wHI"/>
                             <constraint firstItem="pNY-2u-3OI" firstAttribute="top" secondItem="P5h-3d-Sbb" secondAttribute="bottom" constant="50" id="ZYk-ma-X81"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageField" destination="ru2-5Y-NHX" id="chc-qi-KST"/>
                         <outlet property="textField" destination="pNY-2u-3OI" id="jre-8a-mqH"/>
                     </connections>
                 </viewController>

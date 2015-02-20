@@ -28,6 +28,10 @@
     
     self.textField.text = self.textValue;
     //[self.textField sizeToFit];
+    
+    self.imageField.image = [UIImage imageNamed:self.imageFile];
+    
+    self.imageField.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (IBAction)Done

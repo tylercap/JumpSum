@@ -10,7 +10,9 @@
 
 @interface HowToChildViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageField;
 @property (weak, nonatomic) IBOutlet UILabel *textField;
+
 @property (assign, nonatomic) NSInteger index;
 @property NSString *titleValue;
 @property NSString *textValue;

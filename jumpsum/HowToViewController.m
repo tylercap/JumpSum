@@ -14,8 +14,8 @@
 {
     [super viewDidLoad];
     
-    _pageTitles = @[@"Objective", @"Gameplay", @"Scoring", @"Example 1", @"Example 2", @"Example 3", @"Example 4", @"Example 5"];
-    _pageImages = @[@"", @"", @"", @"ex1.png", @"ex2.png", @"ex3.png", @"ex4.png", @"ex5.png"];
+    _pageTitles = @[@"Objective", @"Gameplay", @"Scoring", @"Example 1", @"Example 2", @"Example 3", @"Example 4"];
+    _pageImages = @[@"", @"", @"", @"example1.png", @"example2.png", @"example3.png", @"example4.png"];
     _pageTextFields = [self getTextValues];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -97,13 +97,12 @@
     
     NSString *scoring = @"The score is equal to the highest value on any of the tiles.";
     
-    NSString *example1 = @"The gameboard seen here will be used as an example.";
-    NSString *example2 = @"The 3 in the first row can be moved over the 2.";
-    NSString *example3 = @"Then the 20 can be moved over the 5 in the first row as well.";
-    NSString *example4 = @"Then the 25 can be moved over the 4 in the second column.";
-    NSString *example5 = @"There are still remaining moves that can be made, but the current score for this example would be 29.";
+    NSString *example1 = @"The gameboard seen here will be used as an example. The 3 in the first row can be moved over the 2.";
+    NSString *example2 = @"Then the 20 can be moved over the 5 in the first row as well.";
+    NSString *example3 = @"Then the 25 can be moved over the 4 in the second column.";
+    NSString *example4 = @"There are still remaining moves that can be made, but the current score for this example would be 29.";
     
-    return @[objective, gameplay, scoring, example1, example2, example3, example4, example5];
+    return @[objective, gameplay, scoring, example1, example2, example3, example4];
 }
 
 @end
