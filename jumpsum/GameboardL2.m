@@ -1,17 +1,17 @@
 //
-//  GameboardL1.m
+//  GameboardL2.m
 //  jumpsum
 //
 //  Created by Tyler Cap on 2/12/15.
 //  Copyright (c) 2015 Tyler Cap. All rights reserved.
 //
 
-#import "GameboardL1.h"
+#import "GameboardL2.h"
 
-static NSString * const Sandbox = @"GameboardL1.plist";
-static NSString * const HSSandbox = @"HighScoreL1.txt";
+static NSString * const Sandbox = @"GameboardL2.plist";
+static NSString * const HSSandbox = @"HighScoreL2.txt";
 
-@implementation GameboardL1
+@implementation GameboardL2
 
 -(NSInteger)getSections
 {
@@ -20,7 +20,7 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 -(NSInteger)getItems
 {
-    return 5;
+    return 6;
 }
 
 -(void)loadNewGame
@@ -44,11 +44,19 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
         [array addObject:row];
         
         for( int j=0; j<[self getItems]; j++ ){
-            NSUInteger index = arc4random_uniform(remaining);
-            [row addObject:[values objectAtIndex:index]];
-            
-            [values removeObjectAtIndex:index];
-            remaining--;
+            if( (i % 2 == 0 && j == 5) ||
+                (i % 2 == 1 && j == 0) )
+            {
+                [row addObject:@"-2"];
+            }
+            else
+            {
+                NSUInteger index = arc4random_uniform(remaining);
+                [row addObject:[values objectAtIndex:index]];
+                
+                [values removeObjectAtIndex:index];
+                remaining--;
+            }
         }
     }
     
@@ -92,27 +100,27 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 - (NSString *)getLeaderboardId
 {
-    return @"CgkItMu16qgJEAIQAQ";
+    return @"CgkItMu16qgJEAIQDg";
 }
 
 - (NSString *)getOver60Id
 {
-    return @"CgkItMu16qgJEAIQBA";
+    return @"CgkItMu16qgJEAIQDw";
 }
 
 - (NSString *)getOver80Id
 {
-    return @"CgkItMu16qgJEAIQAw";
+    return @"CgkItMu16qgJEAIQEA";
 }
 
 - (NSString *)getOver90Id
 {
-    return @"CgkItMu16qgJEAIQAg";
+    return @"CgkItMu16qgJEAIQEQ";
 }
 
 - (NSString *)getPerfectId
 {
-    return @"CgkItMu16qgJEAIQBg";
+    return @"CgkItMu16qgJEAIQEg";
 }
 
 @end

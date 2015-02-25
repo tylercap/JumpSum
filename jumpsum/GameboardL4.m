@@ -1,17 +1,17 @@
 //
-//  GameboardL1.m
+//  GameboardL4.m
 //  jumpsum
 //
 //  Created by Tyler Cap on 2/12/15.
 //  Copyright (c) 2015 Tyler Cap. All rights reserved.
 //
 
-#import "GameboardL1.h"
+#import "GameboardL4.h"
 
-static NSString * const Sandbox = @"GameboardL1.plist";
-static NSString * const HSSandbox = @"HighScoreL1.txt";
+static NSString * const Sandbox = @"GameboardL4.plist";
+static NSString * const HSSandbox = @"HighScoreL4.txt";
 
-@implementation GameboardL1
+@implementation GameboardL4
 
 -(NSInteger)getSections
 {
@@ -20,35 +20,46 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 -(NSInteger)getItems
 {
-    return 5;
+    return 6;
 }
 
 -(void)loadNewGame
 {
     NSMutableArray *values= [[NSMutableArray alloc]init];
-    // randomly fill an array with 10 1, 2, and 3s; 4 10s; and 1 -1 for our values
+    // randomly fill an array with 9 1's, 9 2's, 9 3's, 2 7's, and 4 8's for our values
     for( int i=1; i<4; i++ ){
-        for( int j=0; j<10; j++ ){
+        for( int j=0; j<9; j++ ){
             [values addObject:[NSString stringWithFormat:@"%d",i]];
         }
     }
     [values addObject:@"-1"];
+    for( int j=0; j<2; j++ ){
+        [values addObject:@"7"];
+    }
     for( int j=0; j<4; j++ ){
-        [values addObject:@"10"];
+        [values addObject:@"8"];
     }
     
-    int remaining = 35;
+    int remaining = 34;
     NSMutableArray* array = [[NSMutableArray alloc] init];
     for( int i=0; i<[self getSections]; i++ ){
         NSMutableArray* row = [[NSMutableArray alloc] init];
         [array addObject:row];
         
         for( int j=0; j<[self getItems]; j++ ){
-            NSUInteger index = arc4random_uniform(remaining);
-            [row addObject:[values objectAtIndex:index]];
-            
-            [values removeObjectAtIndex:index];
-            remaining--;
+            if( ((j == 0 || j == 5) && i > 1 && i < 5) ||
+                ((j == 1 || j == 4) && i == 3) )
+            {
+                [row addObject:@"-2"];
+            }
+            else
+            {
+                NSUInteger index = arc4random_uniform(remaining);
+                [row addObject:[values objectAtIndex:index]];
+                
+                [values removeObjectAtIndex:index];
+                remaining--;
+            }
         }
     }
     
@@ -92,27 +103,27 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 - (NSString *)getLeaderboardId
 {
-    return @"CgkItMu16qgJEAIQAQ";
+    return @"CgkItMu16qgJEAIQFg";
 }
 
 - (NSString *)getOver60Id
 {
-    return @"CgkItMu16qgJEAIQBA";
+    return @"CgkItMu16qgJEAIQHQ";
 }
 
 - (NSString *)getOver80Id
 {
-    return @"CgkItMu16qgJEAIQAw";
+    return @"CgkItMu16qgJEAIQHg";
 }
 
 - (NSString *)getOver90Id
 {
-    return @"CgkItMu16qgJEAIQAg";
+    return @"CgkItMu16qgJEAIQHw";
 }
 
 - (NSString *)getPerfectId
 {
-    return @"CgkItMu16qgJEAIQBg";
+    return @"CgkItMu16qgJEAIQKg";
 }
 
 @end

@@ -1,43 +1,43 @@
 //
-//  GameboardL1.m
+//  GameboardL6.m
 //  jumpsum
 //
 //  Created by Tyler Cap on 2/12/15.
 //  Copyright (c) 2015 Tyler Cap. All rights reserved.
 //
 
-#import "GameboardL1.h"
+#import "GameboardL6.h"
 
-static NSString * const Sandbox = @"GameboardL1.plist";
-static NSString * const HSSandbox = @"HighScoreL1.txt";
+static NSString * const Sandbox = @"GameboardL6.plist";
+static NSString * const HSSandbox = @"HighScoreL6.txt";
 
-@implementation GameboardL1
+@implementation GameboardL6
 
 -(NSInteger)getSections
 {
-    return 7;
+    return 8;
 }
 
 -(NSInteger)getItems
 {
-    return 5;
+    return 7;
 }
 
 -(void)loadNewGame
 {
     NSMutableArray *values= [[NSMutableArray alloc]init];
-    // randomly fill an array with 10 1, 2, and 3s; 4 10s; and 1 -1 for our values
-    for( int i=1; i<4; i++ ){
-        for( int j=0; j<10; j++ ){
+    // randomly fill an array with 25 1's, 15 2's, and 15 3's for our values
+    for( int j=0; j<25; j++ ){
+        [values addObject:@"1"];
+    }
+    for( int i=2; i<4; i++ ){
+        for( int j=0; j<15; j++ ){
             [values addObject:[NSString stringWithFormat:@"%d",i]];
         }
     }
     [values addObject:@"-1"];
-    for( int j=0; j<4; j++ ){
-        [values addObject:@"10"];
-    }
     
-    int remaining = 35;
+    int remaining = 56;
     NSMutableArray* array = [[NSMutableArray alloc] init];
     for( int i=0; i<[self getSections]; i++ ){
         NSMutableArray* row = [[NSMutableArray alloc] init];
@@ -92,27 +92,27 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 - (NSString *)getLeaderboardId
 {
-    return @"CgkItMu16qgJEAIQAQ";
+    return @"CgkItMu16qgJEAIQGA";
 }
 
 - (NSString *)getOver60Id
 {
-    return @"CgkItMu16qgJEAIQBA";
+    return @"CgkItMu16qgJEAIQIw";
 }
 
 - (NSString *)getOver80Id
 {
-    return @"CgkItMu16qgJEAIQAw";
+    return @"CgkItMu16qgJEAIQJA";
 }
 
 - (NSString *)getOver90Id
 {
-    return @"CgkItMu16qgJEAIQAg";
+    return @"CgkItMu16qgJEAIQJQ";
 }
 
 - (NSString *)getPerfectId
 {
-    return @"CgkItMu16qgJEAIQBg";
+    return @"CgkItMu16qgJEAIQLA";
 }
 
 @end

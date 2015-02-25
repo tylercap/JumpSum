@@ -13,13 +13,16 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic) NSInteger value;
+@property (nonatomic, weak) UIViewController *parentController;
+@property (atomic) Boolean moving;
 @property (nonatomic, assign) CGPoint touchOffset;
 @property (nonatomic, assign) CGPoint originalPosition;
 
 @property (nonatomic, strong) UIColor *normalBack;
 @property (nonatomic, strong) UIColor *highlightBack;
 
--(void)setLabel:(NSInteger)value;
+-(void)setLabel:(NSInteger)value
+         parent:(UIViewController *)parent;
 -(void)highlight:(Boolean)highlight;
 
 @end

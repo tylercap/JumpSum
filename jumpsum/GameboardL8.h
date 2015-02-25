@@ -1,5 +1,5 @@
 //
-//  GameboardL1.h
+//  GameboardL8.h
 //  jumpsum
 //
 //  Created by Tyler Cap on 2/12/15.
@@ -8,7 +8,7 @@
 
 #import "Gameboard.h"
 
-@interface GameboardL1 : Gameboard
+@interface GameboardL8 : Gameboard
 
 @property (nonatomic, strong) NSString *arrayPath;
 @property (nonatomic, strong) NSString *highScorePath;

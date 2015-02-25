@@ -5,9 +5,6 @@
 //  Created by Tyler Cap on 2/5/15.
 //  Copyright (c) 2015 Tyler Cap. All rights reserved.
 //
-
-@import GoogleMobileAds;
-
 #import "MyCollectionViewController.h"
 
 static NSString * const CellIdentifier = @"TileCell";
@@ -18,10 +15,7 @@ static NSString * const CurrentScore = @"Current Score: ";
 static NSString * const HighScore = @"High Score: ";
 static NSString * const SignIn = @"Sign In";
 static NSString * const SignOut = @"Sign Out";
-static NSString * const BannerAdId = @"ca-app-pub-8484316959485082/7478851650";
-static NSString * const InterstitialAdId = @"ca-app-pub-8484316959485082/8955584856";
 static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmutg3h6dtu.apps.googleusercontent.com";
-// free id: static NSString * const GoogleClientId = @"320198239668-quml3u6s5mch28jvq0vpdeutg8relg25.apps.googleusercontent.com";
 
 @implementation MyCollectionViewController
 
@@ -30,7 +24,39 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     if (_gameboard != nil) {
         return _gameboard;
     }
-    _gameboard = [[GameboardL1 alloc] init];
+    
+    switch( _level ){
+        case 2:
+            _gameboard = [[GameboardL2 alloc] init];
+            break;
+        case 3:
+            _gameboard = [[GameboardL3 alloc] init];
+            break;
+        case 4:
+            _gameboard = [[GameboardL4 alloc] init];
+            break;
+        case 5:
+            _gameboard = [[GameboardL5 alloc] init];
+            break;
+        case 6:
+            _gameboard = [[GameboardL6 alloc] init];
+            break;
+        case 7:
+            _gameboard = [[GameboardL7 alloc] init];
+            break;
+        case 8:
+            _gameboard = [[GameboardL8 alloc] init];
+            break;
+        case 9:
+            _gameboard = [[GameboardL9 alloc] init];
+            break;
+        case 10:
+            _gameboard = [[GameboardL10 alloc] init];
+            break;
+        default:
+            _gameboard = [[GameboardL1 alloc] init];
+    }
+    
     return _gameboard;
 }
 
@@ -38,7 +64,13 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 {
     [super viewDidLoad];
     
-    _headerSections = 2;
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor colorWithRed:0.05 green:0.478 blue:1.0 alpha:1.0],
+                                               NSForegroundColorAttributeName,
+                                               nil];
+    [self.navigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+    
+    _headerSections = 1;
     _footerSections = 1;
     _signedIn = NO;
     
@@ -48,23 +80,50 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     
     self.tiles = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getSections]];
     for( int i = 0; i < [self.gameboard getSections]; i++ ){
-        NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:[self.gameboard getItems]];
+        NSInteger capacity = [self.gameboard getItems];
+        NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:capacity];
         [self.tiles addObject:items];
     }
-}
-
-- (void)loadInterstitial
-{
-    self.interstitial = [[GADInterstitial alloc] init];
-    self.interstitial.adUnitID = InterstitialAdId;
     
-    GADRequest *request = [GADRequest request];
-    self.interstitial.delegate = self;
-    [self.interstitial loadRequest:request];
-}
-
-- (void)interstitialDidDismissScreen:(GADInterstitial *)interstitial {
-    [self loadInterstitial];
+    /*
+     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+     [UIColor colorWithRed:0.0 green:0.0 blue:0.6 alpha:1.0],
+     NSForegroundColorAttributeName,
+     nil];
+     [self.navigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
+     */
+    
+    switch( _level ){
+        case 2:
+            self.navigationItem.title = @"Jump Sum Level 2";
+            break;
+        case 3:
+            self.navigationItem.title = @"Jump Sum Level 3";
+            break;
+        case 4:
+            self.navigationItem.title = @"Jump Sum Level 4";
+            break;
+        case 5:
+            self.navigationItem.title = @"Jump Sum Level 5";
+            break;
+        case 6:
+            self.navigationItem.title = @"Jump Sum Level 6";
+            break;
+        case 7:
+            self.navigationItem.title = @"Jump Sum Level 7";
+            break;
+        case 8:
+            self.navigationItem.title = @"Jump Sum Level 8";
+            break;
+        case 9:
+            self.navigationItem.title = @"Jump Sum Level 9";
+            break;
+        case 10:
+            self.navigationItem.title = @"Jump Sum Level 10";
+            break;
+        default:
+            self.navigationItem.title = @"Jump Sum Level 1";
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,7 +152,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 }
 
 - (Boolean)jumpedTile:(NSIndexPath *)indexPath
-           landing:(CGPoint)dropTarget
+              landing:(CGPoint)dropTarget
 {
     NSInteger row = [indexPath section] - _headerSections;
     NSInteger column = [indexPath item];
@@ -112,10 +171,10 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
             MyCollectionViewCell *jumpedTile = (MyCollectionViewCell*)validTarget.jumpedCell;
             
             NSInteger landingValue = draggedTile.value + jumpedTile.value;
-            [landingTile setLabel:landingValue];
+            [landingTile setLabel:landingValue parent:self];
             
-            [draggedTile setLabel:-1];
-            [jumpedTile setLabel:-1];
+            [draggedTile setLabel:-1 parent:self];
+            [jumpedTile setLabel:-1 parent:self];
             
             // still have to update the gameboard data
             [self.gameboard setValueAt:-1
@@ -214,10 +273,6 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 
 - (void)newGame
 {
-    if ([self.interstitial isReady]) {
-        [self.interstitial presentFromRootViewController:self];
-    }
-    
     [self.gameboard loadNewGame];
     
     [self.collectionView reloadData];
@@ -292,6 +347,42 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     
     _silentlySigningIn = NO;
     [self refreshInterfaceBasedOnSignIn];
+}
+
+- (Boolean)canDrag:(UICollectionViewCell *)cell
+{
+    if( ![cell isKindOfClass:[MyCollectionViewCell class]] )
+    {
+        return NO;
+    }
+    
+    MyCollectionViewCell* mcvc = (MyCollectionViewCell*)cell;
+    if( _movingCell == nil )
+    {
+        _movingCell = mcvc;
+        return YES;
+    }
+    
+    return _movingCell == mcvc;
+}
+
+- (void)finishedDrag:(UICollectionViewCell *)cell
+{
+    if( ![cell isKindOfClass:[MyCollectionViewCell class]] )
+    {
+        return;
+    }
+    
+    MyCollectionViewCell* mcvc = (MyCollectionViewCell*)cell;
+    if( _movingCell == nil )
+    {
+        return;
+    }
+    
+    if( _movingCell == mcvc )
+    {
+        _movingCell = nil;
+    }
 }
 
 - (NSMutableArray *)getValidTargets:(NSInteger)row
@@ -382,7 +473,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     if( jumpedTile.value <= 0 ){
         return NO;
     }
-    if( landingTile.value > 0 ){
+    if( landingTile.value != -1 ){
         return NO;
     }
     
@@ -400,10 +491,6 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     numberOfItemsInSection:(NSInteger)section
 {
     if(section == 0){
-        // banner ad
-        return 1;
-    }
-    else if(section == 1){
         // header
         return 3;
     }
@@ -437,7 +524,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     //NSString *value = [self.gameboard getValueAt:row column:column];
     NSInteger value = [self.gameboard getIntValueAt:row column:column];
     
-    [myCell setLabel:value];
+    [myCell setLabel:value parent:self];
     
     return myCell;
 }
@@ -450,24 +537,6 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     
     UICollectionViewCell *cell = nil;
     if( section == 0 ){
-        /*if( _bannerAdCell != nil ){
-            cell = _bannerAdCell;
-        }
-        else{*/
-            MyBannerCell *bannerCell = [collectionView
-                                        dequeueReusableCellWithReuseIdentifier:BannerIdentifier
-                                        forIndexPath:indexPath];
-            
-            
-            bannerCell.bannerAd.adUnitID = BannerAdId;
-            bannerCell.bannerAd.rootViewController = self;
-            [bannerCell.bannerAd loadRequest:[GADRequest request]];
-            
-            _bannerAdCell = bannerCell;
-            cell = bannerCell;
-        //}
-    }
-    if( section == 1 ){
         if(item == 0){
             if( _leaderboard != nil ){
                 cell = _leaderboard;
@@ -509,8 +578,8 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                 cell = buttonCell;
                 self.signInOut = buttonCell;
                 [buttonCell.button addTarget:self
-                                     action:@selector(signInOrOut)
-                           forControlEvents:UIControlEventTouchUpInside];
+                                      action:@selector(signInOrOut)
+                            forControlEvents:UIControlEventTouchUpInside];
             }
         }
         else if(item == 1){
@@ -523,7 +592,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                                           forIndexPath:indexPath];
                 
                 [labelCell setLabel:CurrentScore
-                          textColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.7 alpha:1.0]];
+                          textColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.44 alpha:1.0]];
                 
                 cell = labelCell;
                 self.currentScoreLabel = labelCell;
@@ -583,7 +652,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                                           forIndexPath:indexPath];
                 
                 [labelCell setLabel:HighScore
-                          textColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.7 alpha:1.0]];
+                          textColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.44 alpha:1.0]];
                 
                 cell = labelCell;
                 self.highScoreLabel = labelCell;

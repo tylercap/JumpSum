@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GooglePlayGames/GooglePlayGames.h>
 
+extern int values[8][7];
 @interface Gameboard : NSObject
 
 @property (nonatomic, strong) NSString *docPath;

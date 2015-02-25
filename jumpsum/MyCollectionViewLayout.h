@@ -14,6 +14,8 @@
 @property (nonatomic) CGSize itemSize;
 @property (nonatomic) CGFloat interItemSpacingY;
 @property (nonatomic) CGFloat interItemSpacingX;
+@property (nonatomic) CGFloat headerButtonWidth;
+@property (nonatomic) CGFloat headerLabelWidth;
 @property (nonatomic) NSInteger numberOfColumns;
 @property (nonatomic) NSInteger numberOfRows;
 

@@ -1,17 +1,17 @@
 //
-//  GameboardL1.m
+//  GameboardL3.m
 //  jumpsum
 //
 //  Created by Tyler Cap on 2/12/15.
 //  Copyright (c) 2015 Tyler Cap. All rights reserved.
 //
 
-#import "GameboardL1.h"
+#import "GameboardL3.h"
 
-static NSString * const Sandbox = @"GameboardL1.plist";
-static NSString * const HSSandbox = @"HighScoreL1.txt";
+static NSString * const Sandbox = @"GameboardL3.plist";
+static NSString * const HSSandbox = @"HighScoreL3.txt";
 
-@implementation GameboardL1
+@implementation GameboardL3
 
 -(NSInteger)getSections
 {
@@ -20,24 +20,25 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 -(NSInteger)getItems
 {
-    return 5;
+    return 6;
 }
 
 -(void)loadNewGame
 {
     NSMutableArray *values= [[NSMutableArray alloc]init];
-    // randomly fill an array with 10 1, 2, and 3s; 4 10s; and 1 -1 for our values
+    // randomly fill an array with 12 1, 2, and 3s; 4 5s; 1 8; and 1 -1 for our values
     for( int i=1; i<4; i++ ){
-        for( int j=0; j<10; j++ ){
+        for( int j=0; j<12; j++ ){
             [values addObject:[NSString stringWithFormat:@"%d",i]];
         }
     }
     [values addObject:@"-1"];
+    [values addObject:@"8"];
     for( int j=0; j<4; j++ ){
-        [values addObject:@"10"];
+        [values addObject:@"5"];
     }
     
-    int remaining = 35;
+    int remaining = 42;
     NSMutableArray* array = [[NSMutableArray alloc] init];
     for( int i=0; i<[self getSections]; i++ ){
         NSMutableArray* row = [[NSMutableArray alloc] init];
@@ -92,27 +93,27 @@ static NSString * const HSSandbox = @"HighScoreL1.txt";
 
 - (NSString *)getLeaderboardId
 {
-    return @"CgkItMu16qgJEAIQAQ";
+    return @"CgkItMu16qgJEAIQFQ";
 }
 
 - (NSString *)getOver60Id
 {
-    return @"CgkItMu16qgJEAIQBA";
+    return @"CgkItMu16qgJEAIQGg";
 }
 
 - (NSString *)getOver80Id
 {
-    return @"CgkItMu16qgJEAIQAw";
+    return @"CgkItMu16qgJEAIQGw";
 }
 
 - (NSString *)getOver90Id
 {
-    return @"CgkItMu16qgJEAIQAg";
+    return @"CgkItMu16qgJEAIQHA";
 }
 
 - (NSString *)getPerfectId
 {
-    return @"CgkItMu16qgJEAIQBg";
+    return @"CgkItMu16qgJEAIQKQ";
 }
 
 @end

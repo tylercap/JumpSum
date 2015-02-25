@@ -7,23 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D40254FA1A895B6700F218D3 /* MyLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40254F91A895B6700F218D3 /* MyLabelCell.m */; };
 		D40ADA251A83BFAD00E23C48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA241A83BFAD00E23C48 /* main.m */; };
 		D40ADA281A83BFAD00E23C48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA271A83BFAD00E23C48 /* AppDelegate.m */; };
 		D40ADA2B1A83BFAD00E23C48 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA2A1A83BFAD00E23C48 /* MyCollectionViewController.m */; };
-		D40ADA2E1A83BFAD00E23C48 /* JumpSum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40ADA2C1A83BFAD00E23C48 /* JumpSum.storyboard */; };
-		D40ADA301A83BFAD00E23C48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D40ADA2F1A83BFAD00E23C48 /* Images.xcassets */; };
 		D40ADA331A83BFAD00E23C48 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40ADA311A83BFAD00E23C48 /* LaunchScreen.xib */; };
 		D40ADA3F1A83BFAD00E23C48 /* jumpsumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA3E1A83BFAD00E23C48 /* jumpsumTests.m */; };
-		D40ADA4A1A83C31E00E23C48 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA491A83C31E00E23C48 /* MyCollectionViewCell.m */; };
-		D40ADA4D1A83C3EB00E23C48 /* Gameboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */; };
 		D41A02531A97DC8B001590E1 /* example1.png in Resources */ = {isa = PBXBuildFile; fileRef = D41A024F1A97DC8B001590E1 /* example1.png */; };
 		D41A02541A97DC8B001590E1 /* example2.png in Resources */ = {isa = PBXBuildFile; fileRef = D41A02501A97DC8B001590E1 /* example2.png */; };
 		D41A02551A97DC8B001590E1 /* example3.png in Resources */ = {isa = PBXBuildFile; fileRef = D41A02511A97DC8B001590E1 /* example3.png */; };
 		D41A02561A97DC8B001590E1 /* example4.png in Resources */ = {isa = PBXBuildFile; fileRef = D41A02521A97DC8B001590E1 /* example4.png */; };
 		D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */; };
-		D462260B1A8A9B8500CBB758 /* CellPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D462260A1A8A9B8500CBB758 /* CellPair.m */; };
-		D46CD3DA1A8D226300BB075E /* GameboardL1.m in Sources */ = {isa = PBXBuildFile; fileRef = D46CD3D91A8D226300BB075E /* GameboardL1.m */; };
 		D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */; };
 		D46CD3E01A8D475000BB075E /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DF1A8D475000BB075E /* GooglePlus.framework */; };
 		D46CD3E81A8D4A0B00BB075E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3E71A8D4A0B00BB075E /* libc++.dylib */; };
@@ -40,14 +33,30 @@
 		D46CD3FE1A8D4B5800BB075E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3FD1A8D4B5800BB075E /* MediaPlayer.framework */; };
 		D46CD4001A8D4B6C00BB075E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3FF1A8D4B6C00BB075E /* Security.framework */; };
 		D46CD4021A8D4B7700BB075E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */; };
-		D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D497E61E1A8565EA00CDC930 /* MyButtonCell.m */; };
+		D47826331A99153F009CD98B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47826321A99153F009CD98B /* Images.xcassets */; };
+		D49505361A9D524E002EB899 /* JumpSum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49505351A9D524E002EB899 /* JumpSum.storyboard */; };
+		D495053B1A9D5261002EB899 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505381A9D5261002EB899 /* MyTableViewController.m */; };
+		D495053C1A9D5261002EB899 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D495053A1A9D5261002EB899 /* MyTableViewCell.m */; };
+		D49505531A9D5319002EB899 /* Gameboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D495053E1A9D5319002EB899 /* Gameboard.m */; };
+		D49505541A9D5319002EB899 /* GameboardL1.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505401A9D5319002EB899 /* GameboardL1.m */; };
+		D49505551A9D5319002EB899 /* GameboardL2.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505421A9D5319002EB899 /* GameboardL2.m */; };
+		D49505561A9D5319002EB899 /* GameboardL3.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505441A9D5319002EB899 /* GameboardL3.m */; };
+		D49505571A9D5319002EB899 /* GameboardL4.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505461A9D5319002EB899 /* GameboardL4.m */; };
+		D49505581A9D5319002EB899 /* GameboardL5.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505481A9D5319002EB899 /* GameboardL5.m */; };
+		D49505591A9D5319002EB899 /* GameboardL6.m in Sources */ = {isa = PBXBuildFile; fileRef = D495054A1A9D5319002EB899 /* GameboardL6.m */; };
+		D495055A1A9D5319002EB899 /* GameboardL7.m in Sources */ = {isa = PBXBuildFile; fileRef = D495054C1A9D5319002EB899 /* GameboardL7.m */; };
+		D495055B1A9D5319002EB899 /* GameboardL8.m in Sources */ = {isa = PBXBuildFile; fileRef = D495054E1A9D5319002EB899 /* GameboardL8.m */; };
+		D495055C1A9D5319002EB899 /* GameboardL9.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505501A9D5319002EB899 /* GameboardL9.m */; };
+		D495055D1A9D5319002EB899 /* GameboardL10.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505521A9D5319002EB899 /* GameboardL10.m */; };
+		D49505681A9D5343002EB899 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D495055F1A9D5343002EB899 /* MyCollectionViewCell.m */; };
+		D49505691A9D5343002EB899 /* MyButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505611A9D5343002EB899 /* MyButtonCell.m */; };
+		D495056A1A9D5343002EB899 /* MyLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505631A9D5343002EB899 /* MyLabelCell.m */; };
+		D495056C1A9D5343002EB899 /* CellPair.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505671A9D5343002EB899 /* CellPair.m */; };
 		D4B961E71A96388A00322089 /* HowToChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B961E61A96388A00322089 /* HowToChildViewController.m */; };
 		D4E3EFEE1A9277C100CEB0DB /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E3EFED1A9277C100CEB0DB /* HowToViewController.m */; };
 		D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */; };
 		D4EEC5A11A8EAF3000F2A7D1 /* GooglePlayGames.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */; };
 		D4EEC5A31A8EAF4F00F2A7D1 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */; };
-		D4F72BE21A8BEF73002F5B25 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */; };
-		D4F72BE51A8BF208002F5B25 /* MyBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +70,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D40254F81A895B6700F218D3 /* MyLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabelCell.h; sourceTree = "<group>"; };
-		D40254F91A895B6700F218D3 /* MyLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabelCell.m; sourceTree = "<group>"; };
 		D40ADA1F1A83BFAD00E23C48 /* jumpsum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jumpsum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40ADA231A83BFAD00E23C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D40ADA241A83BFAD00E23C48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,26 +77,16 @@
 		D40ADA271A83BFAD00E23C48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D40ADA291A83BFAD00E23C48 /* MyCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
 		D40ADA2A1A83BFAD00E23C48 /* MyCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
-		D40ADA2D1A83BFAD00E23C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JumpSum.storyboard; sourceTree = "<group>"; };
-		D40ADA2F1A83BFAD00E23C48 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D40ADA321A83BFAD00E23C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D40ADA381A83BFAD00E23C48 /* jumpsumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jumpsumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40ADA3D1A83BFAD00E23C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D40ADA3E1A83BFAD00E23C48 /* jumpsumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jumpsumTests.m; sourceTree = "<group>"; };
-		D40ADA481A83C2DC00E23C48 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
-		D40ADA491A83C31E00E23C48 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
-		D40ADA4B1A83C3EB00E23C48 /* Gameboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameboard.h; sourceTree = "<group>"; };
-		D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gameboard.m; sourceTree = "<group>"; };
 		D41A024F1A97DC8B001590E1 /* example1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example1.png; sourceTree = "<group>"; };
 		D41A02501A97DC8B001590E1 /* example2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example2.png; sourceTree = "<group>"; };
 		D41A02511A97DC8B001590E1 /* example3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example3.png; sourceTree = "<group>"; };
 		D41A02521A97DC8B001590E1 /* example4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example4.png; sourceTree = "<group>"; };
 		D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewLayout.h; sourceTree = "<group>"; };
 		D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewLayout.m; sourceTree = "<group>"; };
-		D46226091A8A9B8500CBB758 /* CellPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPair.h; sourceTree = "<group>"; };
-		D462260A1A8A9B8500CBB758 /* CellPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPair.m; sourceTree = "<group>"; };
-		D46CD3D81A8D226300BB075E /* GameboardL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL1.h; sourceTree = "<group>"; };
-		D46CD3D91A8D226300BB075E /* GameboardL1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL1.m; sourceTree = "<group>"; };
 		D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
 		D46CD3DF1A8D475000BB075E /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		D46CD3E71A8D4A0B00BB075E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
@@ -106,8 +103,42 @@
 		D46CD3FD1A8D4B5800BB075E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		D46CD3FF1A8D4B6C00BB075E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		D497E61D1A8565EA00CDC930 /* MyButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButtonCell.h; sourceTree = "<group>"; };
-		D497E61E1A8565EA00CDC930 /* MyButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButtonCell.m; sourceTree = "<group>"; };
+		D47826321A99153F009CD98B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D49505351A9D524E002EB899 /* JumpSum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JumpSum.storyboard; sourceTree = "<group>"; };
+		D49505371A9D5261002EB899 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
+		D49505381A9D5261002EB899 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
+		D49505391A9D5261002EB899 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		D495053A1A9D5261002EB899 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		D495053D1A9D5319002EB899 /* Gameboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameboard.h; sourceTree = "<group>"; };
+		D495053E1A9D5319002EB899 /* Gameboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gameboard.m; sourceTree = "<group>"; };
+		D495053F1A9D5319002EB899 /* GameboardL1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL1.h; sourceTree = "<group>"; };
+		D49505401A9D5319002EB899 /* GameboardL1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL1.m; sourceTree = "<group>"; };
+		D49505411A9D5319002EB899 /* GameboardL2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL2.h; sourceTree = "<group>"; };
+		D49505421A9D5319002EB899 /* GameboardL2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL2.m; sourceTree = "<group>"; };
+		D49505431A9D5319002EB899 /* GameboardL3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL3.h; sourceTree = "<group>"; };
+		D49505441A9D5319002EB899 /* GameboardL3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL3.m; sourceTree = "<group>"; };
+		D49505451A9D5319002EB899 /* GameboardL4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL4.h; sourceTree = "<group>"; };
+		D49505461A9D5319002EB899 /* GameboardL4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL4.m; sourceTree = "<group>"; };
+		D49505471A9D5319002EB899 /* GameboardL5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL5.h; sourceTree = "<group>"; };
+		D49505481A9D5319002EB899 /* GameboardL5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL5.m; sourceTree = "<group>"; };
+		D49505491A9D5319002EB899 /* GameboardL6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL6.h; sourceTree = "<group>"; };
+		D495054A1A9D5319002EB899 /* GameboardL6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL6.m; sourceTree = "<group>"; };
+		D495054B1A9D5319002EB899 /* GameboardL7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL7.h; sourceTree = "<group>"; };
+		D495054C1A9D5319002EB899 /* GameboardL7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL7.m; sourceTree = "<group>"; };
+		D495054D1A9D5319002EB899 /* GameboardL8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL8.h; sourceTree = "<group>"; };
+		D495054E1A9D5319002EB899 /* GameboardL8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL8.m; sourceTree = "<group>"; };
+		D495054F1A9D5319002EB899 /* GameboardL9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL9.h; sourceTree = "<group>"; };
+		D49505501A9D5319002EB899 /* GameboardL9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL9.m; sourceTree = "<group>"; };
+		D49505511A9D5319002EB899 /* GameboardL10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL10.h; sourceTree = "<group>"; };
+		D49505521A9D5319002EB899 /* GameboardL10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL10.m; sourceTree = "<group>"; };
+		D495055E1A9D5343002EB899 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		D495055F1A9D5343002EB899 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		D49505601A9D5343002EB899 /* MyButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButtonCell.h; sourceTree = "<group>"; };
+		D49505611A9D5343002EB899 /* MyButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButtonCell.m; sourceTree = "<group>"; };
+		D49505621A9D5343002EB899 /* MyLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLabelCell.h; sourceTree = "<group>"; };
+		D49505631A9D5343002EB899 /* MyLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLabelCell.m; sourceTree = "<group>"; };
+		D49505661A9D5343002EB899 /* CellPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPair.h; sourceTree = "<group>"; };
+		D49505671A9D5343002EB899 /* CellPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPair.m; sourceTree = "<group>"; };
 		D4B961E51A96388A00322089 /* HowToChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToChildViewController.h; sourceTree = "<group>"; };
 		D4B961E61A96388A00322089 /* HowToChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToChildViewController.m; sourceTree = "<group>"; };
 		D4E3EFEC1A9277C100CEB0DB /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
@@ -115,9 +146,6 @@
 		D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlayGames.framework; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.framework"; sourceTree = "<group>"; };
 		D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlayGames.bundle; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.bundle"; sourceTree = "<group>"; };
 		D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
-		D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		D4F72BE31A8BF208002F5B25 /* MyBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBannerCell.h; sourceTree = "<group>"; };
-		D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBannerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +170,6 @@
 				D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */,
 				D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */,
 				D46CD3E01A8D475000BB075E /* GooglePlus.framework in Frameworks */,
-				D4F72BE21A8BEF73002F5B25 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,11 +247,11 @@
 		D41A02461A97D72C001590E1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D47826321A99153F009CD98B /* Images.xcassets */,
 				D41A024F1A97DC8B001590E1 /* example1.png */,
 				D41A02501A97DC8B001590E1 /* example2.png */,
 				D41A02511A97DC8B001590E1 /* example3.png */,
 				D41A02521A97DC8B001590E1 /* example4.png */,
-				D40ADA2F1A83BFAD00E23C48 /* Images.xcassets */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -232,16 +259,14 @@
 		D46CD3DB1A8D22CC00BB075E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D40ADA481A83C2DC00E23C48 /* MyCollectionViewCell.h */,
-				D40ADA491A83C31E00E23C48 /* MyCollectionViewCell.m */,
-				D497E61D1A8565EA00CDC930 /* MyButtonCell.h */,
-				D497E61E1A8565EA00CDC930 /* MyButtonCell.m */,
-				D40254F81A895B6700F218D3 /* MyLabelCell.h */,
-				D40254F91A895B6700F218D3 /* MyLabelCell.m */,
-				D4F72BE31A8BF208002F5B25 /* MyBannerCell.h */,
-				D4F72BE41A8BF208002F5B25 /* MyBannerCell.m */,
-				D46226091A8A9B8500CBB758 /* CellPair.h */,
-				D462260A1A8A9B8500CBB758 /* CellPair.m */,
+				D495055E1A9D5343002EB899 /* MyCollectionViewCell.h */,
+				D495055F1A9D5343002EB899 /* MyCollectionViewCell.m */,
+				D49505601A9D5343002EB899 /* MyButtonCell.h */,
+				D49505611A9D5343002EB899 /* MyButtonCell.m */,
+				D49505621A9D5343002EB899 /* MyLabelCell.h */,
+				D49505631A9D5343002EB899 /* MyLabelCell.m */,
+				D49505661A9D5343002EB899 /* CellPair.h */,
+				D49505671A9D5343002EB899 /* CellPair.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -249,10 +274,28 @@
 		D46CD3DC1A8D22E800BB075E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D40ADA4B1A83C3EB00E23C48 /* Gameboard.h */,
-				D40ADA4C1A83C3EB00E23C48 /* Gameboard.m */,
-				D46CD3D81A8D226300BB075E /* GameboardL1.h */,
-				D46CD3D91A8D226300BB075E /* GameboardL1.m */,
+				D495053D1A9D5319002EB899 /* Gameboard.h */,
+				D495053E1A9D5319002EB899 /* Gameboard.m */,
+				D495053F1A9D5319002EB899 /* GameboardL1.h */,
+				D49505401A9D5319002EB899 /* GameboardL1.m */,
+				D49505411A9D5319002EB899 /* GameboardL2.h */,
+				D49505421A9D5319002EB899 /* GameboardL2.m */,
+				D49505431A9D5319002EB899 /* GameboardL3.h */,
+				D49505441A9D5319002EB899 /* GameboardL3.m */,
+				D49505451A9D5319002EB899 /* GameboardL4.h */,
+				D49505461A9D5319002EB899 /* GameboardL4.m */,
+				D49505471A9D5319002EB899 /* GameboardL5.h */,
+				D49505481A9D5319002EB899 /* GameboardL5.m */,
+				D49505491A9D5319002EB899 /* GameboardL6.h */,
+				D495054A1A9D5319002EB899 /* GameboardL6.m */,
+				D495054B1A9D5319002EB899 /* GameboardL7.h */,
+				D495054C1A9D5319002EB899 /* GameboardL7.m */,
+				D495054D1A9D5319002EB899 /* GameboardL8.h */,
+				D495054E1A9D5319002EB899 /* GameboardL8.m */,
+				D495054F1A9D5319002EB899 /* GameboardL9.h */,
+				D49505501A9D5319002EB899 /* GameboardL9.m */,
+				D49505511A9D5319002EB899 /* GameboardL10.h */,
+				D49505521A9D5319002EB899 /* GameboardL10.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -279,7 +322,6 @@
 				D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */,
 				D46CD3DF1A8D475000BB075E /* GooglePlus.framework */,
 				D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */,
-				D4F72BE11A8BEF73002F5B25 /* GoogleMobileAds.framework */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -298,7 +340,11 @@
 		D4B961E91A9651EA00322089 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D40ADA2C1A83BFAD00E23C48 /* JumpSum.storyboard */,
+				D49505351A9D524E002EB899 /* JumpSum.storyboard */,
+				D49505371A9D5261002EB899 /* MyTableViewController.h */,
+				D49505381A9D5261002EB899 /* MyTableViewController.m */,
+				D49505391A9D5261002EB899 /* MyTableViewCell.h */,
+				D495053A1A9D5261002EB899 /* MyTableViewCell.m */,
 				D40ADA291A83BFAD00E23C48 /* MyCollectionViewController.h */,
 				D40ADA2A1A83BFAD00E23C48 /* MyCollectionViewController.m */,
 				D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */,
@@ -387,14 +433,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D40ADA2E1A83BFAD00E23C48 /* JumpSum.storyboard in Resources */,
+				D47826331A99153F009CD98B /* Images.xcassets in Resources */,
 				D4EEC5A31A8EAF4F00F2A7D1 /* GooglePlus.bundle in Resources */,
 				D41A02531A97DC8B001590E1 /* example1.png in Resources */,
 				D40ADA331A83BFAD00E23C48 /* LaunchScreen.xib in Resources */,
+				D49505361A9D524E002EB899 /* JumpSum.storyboard in Resources */,
 				D41A02541A97DC8B001590E1 /* example2.png in Resources */,
 				D4EEC5A11A8EAF3000F2A7D1 /* GooglePlayGames.bundle in Resources */,
 				D41A02551A97DC8B001590E1 /* example3.png in Resources */,
-				D40ADA301A83BFAD00E23C48 /* Images.xcassets in Resources */,
 				D41A02561A97DC8B001590E1 /* example4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,19 +459,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D495055D1A9D5319002EB899 /* GameboardL10.m in Sources */,
+				D49505581A9D5319002EB899 /* GameboardL5.m in Sources */,
+				D49505561A9D5319002EB899 /* GameboardL3.m in Sources */,
 				D40ADA2B1A83BFAD00E23C48 /* MyCollectionViewController.m in Sources */,
+				D49505691A9D5343002EB899 /* MyButtonCell.m in Sources */,
 				D4E3EFEE1A9277C100CEB0DB /* HowToViewController.m in Sources */,
-				D462260B1A8A9B8500CBB758 /* CellPair.m in Sources */,
+				D495055B1A9D5319002EB899 /* GameboardL8.m in Sources */,
+				D495055A1A9D5319002EB899 /* GameboardL7.m in Sources */,
+				D49505591A9D5319002EB899 /* GameboardL6.m in Sources */,
+				D495056C1A9D5343002EB899 /* CellPair.m in Sources */,
 				D4B961E71A96388A00322089 /* HowToChildViewController.m in Sources */,
-				D46CD3DA1A8D226300BB075E /* GameboardL1.m in Sources */,
+				D49505541A9D5319002EB899 /* GameboardL1.m in Sources */,
 				D40ADA281A83BFAD00E23C48 /* AppDelegate.m in Sources */,
-				D497E61F1A8565EA00CDC930 /* MyButtonCell.m in Sources */,
-				D40ADA4A1A83C31E00E23C48 /* MyCollectionViewCell.m in Sources */,
-				D40ADA4D1A83C3EB00E23C48 /* Gameboard.m in Sources */,
+				D495056A1A9D5343002EB899 /* MyLabelCell.m in Sources */,
+				D49505551A9D5319002EB899 /* GameboardL2.m in Sources */,
+				D49505571A9D5319002EB899 /* GameboardL4.m in Sources */,
+				D495055C1A9D5319002EB899 /* GameboardL9.m in Sources */,
+				D49505681A9D5343002EB899 /* MyCollectionViewCell.m in Sources */,
+				D495053C1A9D5261002EB899 /* MyTableViewCell.m in Sources */,
+				D49505531A9D5319002EB899 /* Gameboard.m in Sources */,
 				D40ADA251A83BFAD00E23C48 /* main.m in Sources */,
 				D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */,
-				D4F72BE51A8BF208002F5B25 /* MyBannerCell.m in Sources */,
-				D40254FA1A895B6700F218D3 /* MyLabelCell.m in Sources */,
+				D495053B1A9D5261002EB899 /* MyTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,14 +504,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D40ADA2C1A83BFAD00E23C48 /* JumpSum.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D40ADA2D1A83BFAD00E23C48 /* Base */,
-			);
-			name = JumpSum.storyboard;
-			sourceTree = "<group>";
-		};
 		D40ADA311A83BFAD00E23C48 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

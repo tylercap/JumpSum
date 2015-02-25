@@ -8,6 +8,8 @@
 
 #import "Gameboard.h"
 
+int values[8][7];
+
 @implementation Gameboard
 
 - (id)init
@@ -170,19 +172,19 @@
     [self incrementAchievement:[self get10000gamesId]];
     [self incrementAchievement:[self get10000pointsId] steps:score];
     
-    if( score > 60 ){
+    if( score >= 60 ){
         [self unlockAchievement:[self getOver60Id]];
     }
-    if( score > 80 ){
+    if( score >= 80 ){
         [self unlockAchievement:[self getOver80Id]];
     }
-    if( score > 90 ){
+    if( score >= 90 ){
         [self unlockAchievement:[self getOver90Id]];
         
         [self incrementAchievement:[self get5times90Id]];
         [self incrementAchievement:[self get20times90Id]];
     }
-    if( score > 95 ){
+    if( score >= 95 ){
         [self incrementAchievement:[self get100times95Id]];
     }
     if( score == 100 ){
