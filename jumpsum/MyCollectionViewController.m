@@ -214,7 +214,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
         autoLoadNew:(Boolean)autoReload
 {
     Boolean gameOver = gameOverCheck;
-    NSInteger currentScore = 0;
+    _currentScore = 0;
     
     for( int i=0; i<[self.gameboard getSections]; i++ ){
         for( int j=0; j<[self.gameboard getItems]; j++ ){
@@ -230,14 +230,14 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                     gameOver = NO;
                 }
                 
-                currentScore = fmax(currentScore, cellValue);
+                _currentScore = fmax(_currentScore, cellValue);
             }
         }
     }
     
-    self.currentScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", CurrentScore, (long)currentScore];
+    self.currentScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", CurrentScore, (long)_currentScore];
     
-    NSInteger highScore = fmax( currentScore, [self.gameboard getHighScore] );
+    NSInteger highScore = fmax( _currentScore, [self.gameboard getHighScore] );
     self.highScoreLabel.label.text = [NSString stringWithFormat:@"%@%ld", HighScore, (long)highScore];
     
     if( gameOver ){
@@ -245,12 +245,12 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
             [self newGame];
         }
         else{
-            [self.gameboard updateAchievements:currentScore];
+            [self.gameboard updateAchievements:_currentScore];
             
             // Display game over popup
-            NSString *scoreStr = [NSString stringWithFormat:@"Score: %ld", (long)currentScore];
+            NSString *scoreStr = [NSString stringWithFormat:@"Score: %ld", (long)_currentScore];
             
-            Boolean newHigh = [self.gameboard setHighScoreIfGreater:currentScore];
+            Boolean newHigh = [self.gameboard setHighScoreIfGreater:_currentScore];
             if(newHigh){
                 scoreStr = [scoreStr stringByAppendingString:@"\nNew High Score!"];
             }
@@ -258,8 +258,8 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                             message:scoreStr
                                                            delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"New Game", nil];
+                                                  cancelButtonTitle:@"New Game"
+                                                  otherButtonTitles:@"Post Score To Facebook", nil];
             [alert show];
         }
     }
@@ -267,8 +267,12 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if( buttonIndex == 1 )
-        [self newGame];
+    if( buttonIndex == 1 ){
+        [self postToFacebook];
+    }
+    //else if( buttonIndex == 0 ){
+    [self newGame];
+    //}
 }
 
 - (void)newGame
@@ -661,6 +665,95 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     }
     
     return cell;
+}
+
+#pragma mark FacebookPost
+
+- (void)postToFacebook
+{
+    // Check if the Facebook app is installed and we can present the share dialog
+    FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
+    params.link = [NSURL URLWithString:@"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8"];
+    params.name = @"Jump Sum";
+    params.caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
+    //params.linkDescription = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
+    
+    // If the Facebook app is installed and we can present the share dialog
+    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+        // Present the share dialog
+        [FBDialogs presentShareDialogWithParams:params
+                                    clientState:nil
+                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                          if(error) {
+                                              // An error occurred, we need to handle the error
+                                              // See: https://developers.facebook.com/docs/ios/errors
+                                              //NSLog(@"Error publishing story: %@", error.description);
+                                          } else {
+                                              // Success
+                                              //NSLog(@"result %@", results);
+                                          }
+                                      }];
+    } else {
+        // Present the feed dialog
+        [self postFromFeedDialog];
+    }
+}
+
+- (void)postFromFeedDialog
+{
+    // Put together the dialog parameters
+    NSString *link = @"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8";
+    NSString *name = @"Jump Sum";
+    NSString *caption = caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   name, @"name",
+                                   caption, @"caption",
+                                   //caption, @"description",
+                                   link, @"link",
+                                   nil];
+    
+    // Show the feed dialog
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                           parameters:params
+                                              handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                                                  if (error) {
+                                                      // An error occurred, we need to handle the error
+                                                      // See: https://developers.facebook.com/docs/ios/errors
+                                                      //NSLog(@"Error publishing story: %@", error.description);
+                                                  } else {
+                                                      if (result == FBWebDialogResultDialogNotCompleted) {
+                                                          // User cancelled.
+                                                          //NSLog(@"User cancelled.");
+                                                      } else {
+                                                          // Handle the publish feed callback
+                                                          NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                                                          
+                                                          if (![urlParams valueForKey:@"post_id"]) {
+                                                              // User cancelled.
+                                                              //NSLog(@"User cancelled.");
+                                                              
+                                                          } else {
+                                                              // User clicked the Share button
+                                                              //NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
+                                                              //NSLog(@"result %@", result);
+                                                          }
+                                                      }
+                                                  }
+                                              }];
+}
+
+// A function for parsing URL parameters returned by the Feed Dialog.
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
 }
 
 @end

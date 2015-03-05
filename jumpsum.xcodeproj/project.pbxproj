@@ -17,8 +17,6 @@
 		D41A02551A97DC8B001590E1 /* example3.png in Resources */ = {isa = PBXBuildFile; fileRef = D41A02511A97DC8B001590E1 /* example3.png */; };
 		D41A02561A97DC8B001590E1 /* example4.png in Resources */ = {isa = PBXBuildFile; fileRef = D41A02521A97DC8B001590E1 /* example4.png */; };
 		D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */; };
-		D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */; };
-		D46CD3E01A8D475000BB075E /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3DF1A8D475000BB075E /* GooglePlus.framework */; };
 		D46CD3E81A8D4A0B00BB075E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3E71A8D4A0B00BB075E /* libc++.dylib */; };
 		D46CD3EA1A8D4A1700BB075E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3E91A8D4A1700BB075E /* libz.dylib */; };
 		D46CD3EC1A8D4A2800BB075E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3EB1A8D4A2800BB075E /* QuartzCore.framework */; };
@@ -34,6 +32,9 @@
 		D46CD4001A8D4B6C00BB075E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3FF1A8D4B6C00BB075E /* Security.framework */; };
 		D46CD4021A8D4B7700BB075E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */; };
 		D47826331A99153F009CD98B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47826321A99153F009CD98B /* Images.xcassets */; };
+		D480AA421AA78E4600F5BE75 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480AA3F1AA78E4500F5BE75 /* FacebookSDK.framework */; };
+		D480AA431AA78E4600F5BE75 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480AA401AA78E4600F5BE75 /* GoogleOpenSource.framework */; };
+		D480AA441AA78E4600F5BE75 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480AA411AA78E4600F5BE75 /* GooglePlus.framework */; };
 		D49505361A9D524E002EB899 /* JumpSum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49505351A9D524E002EB899 /* JumpSum.storyboard */; };
 		D495053B1A9D5261002EB899 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49505381A9D5261002EB899 /* MyTableViewController.m */; };
 		D495053C1A9D5261002EB899 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D495053A1A9D5261002EB899 /* MyTableViewCell.m */; };
@@ -87,8 +88,6 @@
 		D41A02521A97DC8B001590E1 /* example4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example4.png; sourceTree = "<group>"; };
 		D43377D11A8410D6009CFDF0 /* MyCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewLayout.h; sourceTree = "<group>"; };
 		D43377D21A8410D6009CFDF0 /* MyCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewLayout.m; sourceTree = "<group>"; };
-		D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
-		D46CD3DF1A8D475000BB075E /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		D46CD3E71A8D4A0B00BB075E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		D46CD3E91A8D4A1700BB075E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D46CD3EB1A8D4A2800BB075E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -104,6 +103,9 @@
 		D46CD3FF1A8D4B6C00BB075E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D47826321A99153F009CD98B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D480AA3F1AA78E4500F5BE75 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Libs/js/FacebookSDK.framework; sourceTree = "<group>"; };
+		D480AA401AA78E4600F5BE75 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = ../Libs/js/GoogleOpenSource.framework; sourceTree = "<group>"; };
+		D480AA411AA78E4600F5BE75 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = ../Libs/js/GooglePlus.framework; sourceTree = "<group>"; };
 		D49505351A9D524E002EB899 /* JumpSum.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JumpSum.storyboard; sourceTree = "<group>"; };
 		D49505371A9D5261002EB899 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewController.h; sourceTree = "<group>"; };
 		D49505381A9D5261002EB899 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewController.m; sourceTree = "<group>"; };
@@ -160,16 +162,17 @@
 				D46CD3FA1A8D4B3A00BB075E /* CoreText.framework in Frameworks */,
 				D46CD3F81A8D4B3000BB075E /* CoreTelephony.framework in Frameworks */,
 				D46CD3F61A8D4B2300BB075E /* CoreMotion.framework in Frameworks */,
+				D480AA441AA78E4600F5BE75 /* GooglePlus.framework in Frameworks */,
 				D46CD3F41A8D4B1A00BB075E /* CoreLocation.framework in Frameworks */,
 				D46CD3F21A8D4B1100BB075E /* CoreData.framework in Frameworks */,
 				D46CD3F01A8D4AF200BB075E /* AssetsLibrary.framework in Frameworks */,
 				D46CD3EE1A8D4AD600BB075E /* AddressBook.framework in Frameworks */,
 				D46CD3EC1A8D4A2800BB075E /* QuartzCore.framework in Frameworks */,
 				D46CD3EA1A8D4A1700BB075E /* libz.dylib in Frameworks */,
+				D480AA431AA78E4600F5BE75 /* GoogleOpenSource.framework in Frameworks */,
+				D480AA421AA78E4600F5BE75 /* FacebookSDK.framework in Frameworks */,
 				D46CD3E81A8D4A0B00BB075E /* libc++.dylib in Frameworks */,
-				D46CD3DE1A8D474300BB075E /* GoogleOpenSource.framework in Frameworks */,
 				D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */,
-				D46CD3E01A8D475000BB075E /* GooglePlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +306,9 @@
 		D46CD4031A8D4BA500BB075E /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				D480AA3F1AA78E4500F5BE75 /* FacebookSDK.framework */,
+				D480AA401AA78E4600F5BE75 /* GoogleOpenSource.framework */,
+				D480AA411AA78E4600F5BE75 /* GooglePlus.framework */,
 				D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */,
 				D46CD3FF1A8D4B6C00BB075E /* Security.framework */,
 				D46CD3FD1A8D4B5800BB075E /* MediaPlayer.framework */,
@@ -320,8 +326,6 @@
 				D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */,
 				D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */,
 				D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */,
-				D46CD3DF1A8D475000BB075E /* GooglePlus.framework */,
-				D46CD3DD1A8D474300BB075E /* GoogleOpenSource.framework */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -596,11 +600,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/tcap/Downloads/GooglePlayGames-iOS-SDK.v3.1.1",
+					/Users/tcap/Documents/iOSProjects/Libs/js,
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -622,6 +627,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"/Users/tcap/Downloads/GooglePlayGames-iOS-SDK.v3.1.1",
+					/Users/tcap/Documents/iOSProjects/Libs/js,
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
