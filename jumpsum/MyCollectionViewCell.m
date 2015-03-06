@@ -15,6 +15,12 @@
 {
     self.value = value;
     self.parentController = parent;
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        [self.title setFont:[UIFont fontWithName:@"Helvetica Neue" size:34]];
+        //[self.title setFont:[UIFont systemFontOfSize:36]];
+    }
 
     if( value > 0 ){
         [self setHidden:NO];

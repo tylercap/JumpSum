@@ -19,6 +19,13 @@
 - (void)setLabel:(NSString *) value
        textColor:(UIColor *) text
 {
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        UIFont *font = [UIFont fontWithName:@"Helvetica-Bold" size:34];
+        
+        [self.label setFont:font];
+    }
+    
     self.label.text = value;
     self.label.textColor = text;
 }

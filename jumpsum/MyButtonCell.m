@@ -21,6 +21,11 @@
        textColor:(UIColor *) text
          rounded:(Boolean)round
 {
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        [self.button.titleLabel setFont:[UIFont systemFontOfSize:28]];
+    }
+    
     [self.button setTitle:value forState:UIControlStateNormal];
     
     [self.button setTitleColor:text forState:UIControlStateNormal];
