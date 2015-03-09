@@ -70,6 +70,9 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                                                nil];
     [self.navigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
     
+    UIBarButtonItem *howToItem = [[UIBarButtonItem alloc] initWithTitle:@"How To" style:UIBarButtonItemStylePlain target:self action:@selector(showHowTo)];
+    self.navigationItem.rightBarButtonItem = howToItem;
+    
     _headerSections = 1;
     _footerSections = 1;
     _signedIn = NO;
@@ -84,14 +87,6 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
         NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:capacity];
         [self.tiles addObject:items];
     }
-    
-    /*
-     NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-     [UIColor colorWithRed:0.0 green:0.0 blue:0.6 alpha:1.0],
-     NSForegroundColorAttributeName,
-     nil];
-     [self.navigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
-     */
     
     switch( _level ){
         case 2:
