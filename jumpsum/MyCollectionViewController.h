@@ -35,6 +35,7 @@
 @property (nonatomic) NSInteger level;
 @property (nonatomic) NSInteger currentScore;
 @property (strong, atomic) UICollectionViewCell* movingCell;
+@property (strong, nonatomic) NSMutableArray *undoStack;
 
 @property (nonatomic) Boolean signedIn;
 @property (nonatomic) Boolean silentlySigningIn;
@@ -43,7 +44,7 @@
 @property (nonatomic) NSInteger footerSections;
 
 @property (weak, nonatomic) MyButtonCell *restartGame;
-@property (weak, nonatomic) MyButtonCell *howTo;
+@property (weak, nonatomic) MyButtonCell *undo;
 @property (weak, nonatomic) MyButtonCell *signInOut;
 @property (weak, nonatomic) MyButtonCell *leaderboard;
 @property (weak, nonatomic) MyLabelCell *currentScoreLabel;

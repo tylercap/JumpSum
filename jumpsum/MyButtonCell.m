@@ -16,6 +16,18 @@
     return self;
 }
 
+- (void)disable
+{
+    [self.button setEnabled:NO];
+    self.button.alpha = 0.5;
+}
+
+-(void)enable
+{
+    [self.button setEnabled:YES];
+    self.button.alpha = 1.0;
+}
+
 - (void)setLabel:(NSString *)value
        backColor:(UIColor *) back
        textColor:(UIColor *) text

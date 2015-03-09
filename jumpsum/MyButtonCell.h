@@ -17,4 +17,7 @@
        backColor:(UIColor *) back
        textColor:(UIColor *) text
          rounded:(Boolean) round;
+
+-(void) enable;
+-(void) disable;
 @end

@@ -154,6 +154,12 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 - (Boolean)jumpedTile:(NSIndexPath *)indexPath
               landing:(CGPoint)dropTarget
 {
+    if( _undoStack == nil ){
+        _undoStack = [[NSMutableArray alloc] init];
+    }
+    [_undoStack addObject:[_gameboard storeToArray]];
+    [self.undo enable];
+    
     NSInteger row = [indexPath section] - _headerSections;
     NSInteger column = [indexPath item];
     
@@ -277,11 +283,28 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 
 - (void)newGame
 {
+    _undoStack = [[NSMutableArray alloc] init];
+    [self.undo disable];
     [self.gameboard loadNewGame];
     
     [self.collectionView reloadData];
     
     [self performSelector:@selector(updateScoreNoCheck) withObject:nil afterDelay:0.1];
+}
+
+- (void)doUndo
+{
+    if( [_undoStack count] > 0 ){
+        [self.gameboard loadFromArray:[_undoStack lastObject]];
+        [_undoStack removeLastObject];
+        if( [_undoStack count] == 0 ){
+            [self.undo disable];
+        }
+        
+        [self.collectionView reloadData];
+        
+        [self performSelector:@selector(updateScoreNoCheck) withObject:nil afterDelay:0.1];
+    }
 }
 
 - (void)showHowTo
@@ -605,24 +628,25 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
     }
     if( section >= ([self.gameboard getSections] + _headerSections) ){
         if(item == 0){
-            if( _howTo != nil ){
-                cell = _howTo;
+            if( _undo != nil ){
+                cell = _undo;
             }
             else{
                 MyButtonCell *buttonCell = [collectionView
                                             dequeueReusableCellWithReuseIdentifier:ButtonIdentifier
                                             forIndexPath:indexPath];
                 
-                [buttonCell setLabel:@"How To"
+                [buttonCell setLabel:@"Undo"
                            backColor:[UIColor colorWithRed:0.5 green:0.0 blue:0.8 alpha:1.0]
                            textColor:[UIColor colorWithRed:0.1 green:1.0 blue:0.2 alpha:1.0]
                              rounded:NO];
                 
                 cell = buttonCell;
-                self.howTo = buttonCell;
+                self.undo = buttonCell;
                 [buttonCell.button addTarget:self
-                                      action:@selector(showHowTo)
+                                      action:@selector(doUndo)
                             forControlEvents:UIControlEventTouchUpInside];
+                [buttonCell disable];
             }
         }
         else if(item == 2){
@@ -673,6 +697,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 {
     // Check if the Facebook app is installed and we can present the share dialog
     FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
+    //TODO:
     params.link = [NSURL URLWithString:@"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8"];
     params.name = @"Jump Sum";
     params.caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
@@ -702,6 +727,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 - (void)postFromFeedDialog
 {
     // Put together the dialog parameters
+    //TODO:
     NSString *link = @"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8";
     NSString *name = @"Jump Sum";
     NSString *caption = caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
