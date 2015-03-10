@@ -275,7 +275,7 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
             }
             
             if( !_signedIn ){
-                scoreStr = [scoreStr stringByAppendingString:@"\n\nYou must be signed in for your scores to be submitted to the Leaderboard.\nClick the sign in button in the top right corner, and sign in with you Google account."];
+                scoreStr = [scoreStr stringByAppendingString:@"\n\nYou must be signed in for your scores to be submitted to the Leaderboard.\nClick the sign in button in the top right corner, and sign in with your Google account."];
             }
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
