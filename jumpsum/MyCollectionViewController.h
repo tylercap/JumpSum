@@ -23,6 +23,8 @@
 #import "GameboardL8.h"
 #import "GameboardL9.h"
 #import "GameboardL10.h"
+#import "Application.h"
+#import "MyWebViewController.h"
 #import <GooglePlayGames/GooglePlayGames.h>
 #import <FacebookSDK/FacebookSDK.h>
 

@@ -214,6 +214,39 @@
             </objects>
             <point key="canvasLocation" x="98" y="1475"/>
         </scene>
+        <!--My Web View Controller-->
+        <scene sceneID="oY3-Kb-UvB">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nmB-go-HnN" customClass="MyWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7HE-N5-2Yt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jxs-yV-1a9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uF9-WF-t2j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Nj-3n-qSf">
+                                <rect key="frame" x="16" y="0.0" width="568" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jxs-yV-1a9" firstAttribute="top" secondItem="5Nj-3n-qSf" secondAttribute="bottom" id="7qv-jM-uzS"/>
+                            <constraint firstItem="5Nj-3n-qSf" firstAttribute="leading" secondItem="uF9-WF-t2j" secondAttribute="leadingMargin" id="AHv-Zv-C8X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Nj-3n-qSf" secondAttribute="trailing" id="HcE-ST-1ji"/>
+                            <constraint firstItem="5Nj-3n-qSf" firstAttribute="top" secondItem="uF9-WF-t2j" secondAttribute="topMargin" id="sIv-5C-DQL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5Nj-3n-qSf" id="2oS-YH-vdC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Xx-zA-tlD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="795"/>
+        </scene>
         <!--How To Child View Controller-->
         <scene sceneID="WQT-7J-Td5">
             <objects>

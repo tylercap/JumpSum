@@ -58,6 +58,8 @@
 		D4EEC5A01A8EAF3000F2A7D1 /* GooglePlayGames.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */; };
 		D4EEC5A11A8EAF3000F2A7D1 /* GooglePlayGames.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */; };
 		D4EEC5A31A8EAF4F00F2A7D1 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */; };
+		D4F1266A1AAF2E2B00C7FC58 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F126691AAF2E2B00C7FC58 /* Application.m */; };
+		D4F1266D1AAF334C00C7FC58 /* MyWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1266C1AAF334C00C7FC58 /* MyWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,10 @@
 		D4EEC59E1A8EAF3000F2A7D1 /* GooglePlayGames.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlayGames.framework; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.framework"; sourceTree = "<group>"; };
 		D4EEC59F1A8EAF3000F2A7D1 /* GooglePlayGames.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlayGames.bundle; path = "../../../Downloads/GooglePlayGames-iOS-SDK.v3.1.1/GooglePlayGames.bundle"; sourceTree = "<group>"; };
 		D4EEC5A21A8EAF4F00F2A7D1 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
+		D4F126681AAF2E2B00C7FC58 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		D4F126691AAF2E2B00C7FC58 /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
+		D4F1266B1AAF334C00C7FC58 /* MyWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWebViewController.h; sourceTree = "<group>"; };
+		D4F1266C1AAF334C00C7FC58 /* MyWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,7 @@
 		D40ADA211A83BFAD00E23C48 /* jumpsum */ = {
 			isa = PBXGroup;
 			children = (
+				D4F126671AAF2E0400C7FC58 /* WebView */,
 				D4B961E91A9651EA00322089 /* View */,
 				D4B961E81A96515500322089 /* HowTo */,
 				D46CD3DC1A8D22E800BB075E /* Model */,
@@ -357,6 +364,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		D4F126671AAF2E0400C7FC58 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				D4F126681AAF2E2B00C7FC58 /* Application.h */,
+				D4F126691AAF2E2B00C7FC58 /* Application.m */,
+				D4F1266B1AAF334C00C7FC58 /* MyWebViewController.h */,
+				D4F1266C1AAF334C00C7FC58 /* MyWebViewController.m */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -472,6 +490,7 @@
 				D495055B1A9D5319002EB899 /* GameboardL8.m in Sources */,
 				D495055A1A9D5319002EB899 /* GameboardL7.m in Sources */,
 				D49505591A9D5319002EB899 /* GameboardL6.m in Sources */,
+				D4F1266D1AAF334C00C7FC58 /* MyWebViewController.m in Sources */,
 				D495056C1A9D5343002EB899 /* CellPair.m in Sources */,
 				D4B961E71A96388A00322089 /* HowToChildViewController.m in Sources */,
 				D49505541A9D5319002EB899 /* GameboardL1.m in Sources */,
@@ -484,6 +503,7 @@
 				D495053C1A9D5261002EB899 /* MyTableViewCell.m in Sources */,
 				D49505531A9D5319002EB899 /* Gameboard.m in Sources */,
 				D40ADA251A83BFAD00E23C48 /* main.m in Sources */,
+				D4F1266A1AAF2E2B00C7FC58 /* Application.m in Sources */,
 				D43377D31A8410D6009CFDF0 /* MyCollectionViewLayout.m in Sources */,
 				D495053B1A9D5261002EB899 /* MyTableViewController.m in Sources */,
 			);
@@ -608,7 +628,7 @@
 					/Users/tcap/Documents/iOSProjects/Libs/js,
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = jumpsum;
@@ -630,7 +650,7 @@
 					/Users/tcap/Documents/iOSProjects/Libs/js,
 				);
 				INFOPLIST_FILE = jumpsum/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = jumpsum;

@@ -119,6 +119,24 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
         default:
             self.navigationItem.title = @"Jump Sum Level 1";
     }
+    
+    NSNotificationCenter *notifyCenter = [NSNotificationCenter defaultCenter];
+    [notifyCenter addObserverForName:AppOpenGoogleNotification
+                              object:nil
+                               queue:nil
+                          usingBlock:^(NSNotification *notification){
+                              [self handleNotification:notification];
+                          }];
+}
+
+- (void)handleNotification:(NSNotification*)notification
+{
+    MyWebViewController *mwvc =[self.storyboard instantiateViewControllerWithIdentifier:@"WebViewController"];
+    [mwvc setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:mwvc animated:YES completion:nil];
+    
+    NSURL *request = [notification object];
+    [mwvc loadRequest:request];
 }
 
 - (void)viewDidAppear:(BOOL)animated
