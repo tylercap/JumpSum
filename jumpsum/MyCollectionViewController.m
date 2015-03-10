@@ -256,6 +256,10 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
                 scoreStr = [scoreStr stringByAppendingString:@"\nNew High Score!"];
             }
             
+            if( !_signedIn ){
+                scoreStr = [scoreStr stringByAppendingString:@"\n\nYou must be signed in for your scores to be submitted to the Leaderboard.\nClick the sign in button in the top right corner, and sign in with you Google account."];
+            }
+            
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Over"
                                                             message:scoreStr
                                                            delegate:self
@@ -691,38 +695,36 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
 - (void)postToFacebook
 {
     // Check if the Facebook app is installed and we can present the share dialog
-    FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
-    //TODO:
-    params.link = [NSURL URLWithString:@"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8"];
-    params.name = @"Jump Sum";
-    params.caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
+//    FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
+//    params.link = [NSURL URLWithString:@"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8"];
+//    params.name = @"Jump Sum";
+//    params.caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
     //params.linkDescription = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
     
     // If the Facebook app is installed and we can present the share dialog
-    if ([FBDialogs canPresentShareDialogWithParams:params]) {
-        // Present the share dialog
-        [FBDialogs presentShareDialogWithParams:params
-                                    clientState:nil
-                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-                                          if(error) {
-                                              // An error occurred, we need to handle the error
-                                              // See: https://developers.facebook.com/docs/ios/errors
-                                              //NSLog(@"Error publishing story: %@", error.description);
-                                          } else {
-                                              // Success
-                                              //NSLog(@"result %@", results);
-                                          }
-                                      }];
-    } else {
+//    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+//        // Present the share dialog
+//        [FBDialogs presentShareDialogWithParams:params
+//                                    clientState:nil
+//                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+//                                          if(error) {
+//                                              // An error occurred, we need to handle the error
+//                                              // See: https://developers.facebook.com/docs/ios/errors
+//                                              //NSLog(@"Error publishing story: %@", error.description);
+//                                          } else {
+//                                              // Success
+//                                              //NSLog(@"result %@", results);
+//                                          }
+//                                      }];
+//    } else {
         // Present the feed dialog
         [self postFromFeedDialog];
-    }
+//    }
 }
 
 - (void)postFromFeedDialog
 {
     // Put together the dialog parameters
-    //TODO:
     NSString *link = @"https://itunes.apple.com/us/app/jump-sum-free/id969816031?mt=8";
     NSString *name = @"Jump Sum";
     NSString *caption = caption = [NSString stringWithFormat:@"I scored %ld on Jump Sum Level %ld",(long)_currentScore, (long)_level];
