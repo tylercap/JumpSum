@@ -53,6 +53,9 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
         case 10:
             _gameboard = [[GameboardL10 alloc] init];
             break;
+        case 11:
+            _gameboard = [[GameboardL11 alloc] init];
+            break;
         default:
             _gameboard = [[GameboardL1 alloc] init];
     }

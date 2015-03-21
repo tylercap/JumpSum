@@ -32,6 +32,7 @@
 		D46CD4001A8D4B6C00BB075E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD3FF1A8D4B6C00BB075E /* Security.framework */; };
 		D46CD4021A8D4B7700BB075E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */; };
 		D47826331A99153F009CD98B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47826321A99153F009CD98B /* Images.xcassets */; };
+		D479E6BD1ABC7E6F00C83592 /* GameboardL11.m in Sources */ = {isa = PBXBuildFile; fileRef = D479E6BC1ABC7E6F00C83592 /* GameboardL11.m */; };
 		D480AA421AA78E4600F5BE75 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480AA3F1AA78E4500F5BE75 /* FacebookSDK.framework */; };
 		D480AA431AA78E4600F5BE75 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480AA401AA78E4600F5BE75 /* GoogleOpenSource.framework */; };
 		D480AA441AA78E4600F5BE75 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D480AA411AA78E4600F5BE75 /* GooglePlus.framework */; };
@@ -105,6 +106,8 @@
 		D46CD3FF1A8D4B6C00BB075E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D46CD4011A8D4B7700BB075E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D47826321A99153F009CD98B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D479E6BB1ABC7E6F00C83592 /* GameboardL11.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardL11.h; sourceTree = "<group>"; };
+		D479E6BC1ABC7E6F00C83592 /* GameboardL11.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameboardL11.m; sourceTree = "<group>"; };
 		D480AA3F1AA78E4500F5BE75 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Libs/js/FacebookSDK.framework; sourceTree = "<group>"; };
 		D480AA401AA78E4600F5BE75 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = ../Libs/js/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		D480AA411AA78E4600F5BE75 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = ../Libs/js/GooglePlus.framework; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				D49505501A9D5319002EB899 /* GameboardL9.m */,
 				D49505511A9D5319002EB899 /* GameboardL10.h */,
 				D49505521A9D5319002EB899 /* GameboardL10.m */,
+				D479E6BB1ABC7E6F00C83592 /* GameboardL11.h */,
+				D479E6BC1ABC7E6F00C83592 /* GameboardL11.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				D495056C1A9D5343002EB899 /* CellPair.m in Sources */,
 				D4B961E71A96388A00322089 /* HowToChildViewController.m in Sources */,
 				D49505541A9D5319002EB899 /* GameboardL1.m in Sources */,
+				D479E6BD1ABC7E6F00C83592 /* GameboardL11.m in Sources */,
 				D40ADA281A83BFAD00E23C48 /* AppDelegate.m in Sources */,
 				D495056A1A9D5343002EB899 /* MyLabelCell.m in Sources */,
 				D49505551A9D5319002EB899 /* GameboardL2.m in Sources */,
