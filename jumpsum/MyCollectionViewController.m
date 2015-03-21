@@ -119,6 +119,9 @@ static NSString * const GoogleClientId = @"320198239668-s3nechprc9etqcdf193qsnmu
         case 10:
             self.navigationItem.title = @"Jump Sum Level 10";
             break;
+        case 11:
+            self.navigationItem.title = @"Jump Sum Level 11";
+            break;
         default:
             self.navigationItem.title = @"Jump Sum Level 1";
     }
